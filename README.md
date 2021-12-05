@@ -8,6 +8,6 @@ Units of Measurement
 
 # Motivation
 
-First, I used the library [`forallpeople`](https://github.com/connorferster/forallpeople), but that ran into [issues with large scales](https://github.com/connorferster/forallpeople/issues/27) like Megatonnes and Gigatonnes.
+First, I used the library [`forallpeople`](https://github.com/connorferster/forallpeople), but that ran into [issues with large scales](https://github.com/connorferster/forallpeople/issues/27) like megatonnes and gigatonnes.
 
 Based on my [objectives](#objective) I decided to create a new library that does exactly that and does not deal with quantities (yet).
