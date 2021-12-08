@@ -1,10 +1,10 @@
-"""Units of Measurement
+"""Units of Measure
 
 Classes
 
-  `Dimension`: Linear combination of SI base units
-  `Unit`: Dimension mapped to a symbol and a name
-  `UnitMap`: Map objects to units
+  Dimension: Linear combination of SI base units
+  Unit: Dimension mapped to a symbol and a name
+  UnitMap: Map objects to units
 """
 
 class Dimension:
@@ -31,9 +31,23 @@ class Dimension:
         self.K   = K
         self.cd  = cd
         self.mol = mol
+    
+    def __eq__(self, other):
+        if type(self) != type(other):
+            return NotImplemented
+        return (
+            self.kg  == other.kg and
+            self.m   == other.m  and
+            self.s   == other.s  and
+            self.A   == other.A  and
+            self.K   == other.K  and
+            self.cd  == other.cd and
+            self.mol == other.mol
+        )
+
 
 class Unit:
-    """A `Unit` has a `Dimension`.
+    """A Unit has a Dimension.
 
     Scalars are the null vector, which is the default dimension.
     Units have a prefix, which specifies the order of magnitude in base 10.
@@ -43,7 +57,7 @@ class Unit:
     
     def __init__(
             self,
-            dimension: Dimension,
+            dimension: Dimension = Dimension(), # scalar
             prefix: int = 0,
             symbol: str = "",
             name: str = ""
