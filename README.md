@@ -1,4 +1,4 @@
-# unit-measure
+# unit_measure
 Units of Measure
 
 # Objective
@@ -11,3 +11,9 @@ Units of Measure
 First, I used the library [`forallpeople`](https://github.com/connorferster/forallpeople), but that ran into [issues with large scales](https://github.com/connorferster/forallpeople/issues/27) like megatonnes and gigatonnes.
 
 Based on my [objectives](#objective) I decided to create a new library that does exactly that and does not deal with quantities (yet).
+
+# Get Started
+
+To start from the beginning, open the [Jupyter notebook](https://jupyter-notebook.readthedocs.io/en/latest/) [`start_here.ipynb`](start_here.ipynb).
+
+This library does not require the package `jupyter`, neither at buildtime nor at runtime. Therefore this library does not declare `jupyter` as dependency.
