@@ -1,4 +1,4 @@
-from unit_measure import Dimension, Unit, UnitClass
+from unitsofmeasure import Dimension, Unit, UnitClass
 
 class SiBaseUnits(UnitClass):
     """SI Base Units"""

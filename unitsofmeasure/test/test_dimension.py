@@ -1,6 +1,6 @@
 """Test Dimension"""
 import pytest
-from unit_measure import Dimension
+from unitsofmeasure import Dimension
 
 @pytest.mark.parametrize(
     "dimension        , kg , m , s , A , K , cd , mol",[
