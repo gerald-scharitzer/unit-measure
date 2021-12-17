@@ -97,3 +97,12 @@ class UnitMap:
 
         # map the object ID to its tuple (object, unit) and then return the unit
         return self.units[id(o)][1]
+
+class UnitClass:
+    """Dictionary of Units"""
+
+    unit_map: dict[str, Unit] = {}
+
+    @classmethod
+    def get_units(cls) -> dict[str, Unit]:
+        return cls.unit_map
