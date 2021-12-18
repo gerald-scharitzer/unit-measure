@@ -7,6 +7,7 @@ Classes
   UnitMap: Map objects to units
 """
 
+# TODO map dimensions to quantity names
 class Dimension:
     """Dimension of quantity as defined in the International System of Units - 9th edition
 
