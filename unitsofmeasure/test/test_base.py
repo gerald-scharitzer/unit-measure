@@ -1,5 +1,9 @@
 from unitsofmeasure.base import SiBaseUnits
 
 def test_it():
-    for (key, unit) in SiBaseUnits.get_units().items():
+    items = SiBaseUnits.get_units().items()
+    assert len(items) == 7 # there are 7 base units
+
+    for (key, unit) in items:
+        print(key, unit)
         assert key == unit.symbol

@@ -6,12 +6,12 @@ from unitsofmeasure import Dimension, Unit
     "dimension        , prefix , symbol , name"     ,[
     (Dimension()      ,      0 , "%"    , "percent" ), # scalar
     (Dimension(kg=1)  ,      3 , "kg"   , "kilogram"), # SI base units
-    (Dimension(m=1)   ,      0 , "m"    , "meter"   ),
+    (Dimension(m=1)   ,      0 , "m"    , "metre"   ),
     (Dimension(s=1)   ,      0 , "s"    , "second"  ),
     (Dimension(A=1)   ,      0 , "A"    , "ampere"  ),
     (Dimension(K=1)   ,      0 , "K"    , "kelvin"  ),
     (Dimension(cd=1)  ,      0 , "cd"   , "candela" ),
-    (Dimension(mol=1) ,      0 , "mol"  , "mol"     )
+    (Dimension(mol=1) ,      0 , "mol"  , "mole"    )
 ])
 def test_unit(dimension: Dimension, prefix: int, symbol: str, name: str):
     unit = Unit(dimension=dimension, prefix=prefix, symbol=symbol, name=name)

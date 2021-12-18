@@ -7,7 +7,7 @@ as defined in [Unit of Measurement](https://en.wikipedia.org/wiki/Unit_of_measur
 
 # Objective
 
-1. Relate [units of measurement](https://en.wikipedia.org/wiki/Unit_of_measurement) to the [International System of Units (SI)](https://www.bipm.org/en/measurement-units/) to define their dimension and magnitude.
+1. Relate units of measure to the [International System of Units (SI)](https://www.bipm.org/en/measurement-units/) to define their dimension and magnitude.
 2. Relate arbitrary objects to units.
 
 # Motivation
