@@ -1,5 +1,9 @@
-# units-of-measure
-Units of Measure
+# Units of Measure
+
+as defined in [Unit of Measurement](https://en.wikipedia.org/wiki/Unit_of_measurement).
+
+- Python library: [`units-of-measure`](https://pypi.org/project/units-of-measure/)
+- Python package: [`unitsofmeasure`](https://github.com/gerald-scharitzer/units-of-measure/tree/main/unitsofmeasure)
 
 # Objective
 
@@ -18,9 +22,12 @@ To start from the beginning, open the [Jupyter notebook](https://jupyter-noteboo
 
 This library does not require the package `jupyter`, neither at buildtime nor at runtime. Therefore this library does not declare `jupyter` as dependency.
 
+Download and install the library with `python -m pip install units-of-measure`.
+
 # Develop
 
-1. Test with `pytest`
-2. Build with `python3 -m build`
-3. Check with `python3 -m twine check dist/*`
-4. Publish with `python3 -m twine upload dist/*`
+1. Clone with `git clone https://github.com/gerald-scharitzer/units-of-measure.git`
+2. Test with `pytest`
+3. Build with `python -m build`
+4. Check with `python -m twine check dist/*`
+5. Publish with `python -m twine upload dist/*`
