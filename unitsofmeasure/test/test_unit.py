@@ -1,6 +1,6 @@
 """Test Unit"""
 import pytest
-from unitsofmeasure import Dimension, Unit
+from unitsofmeasure import Dimension, no_prefix, no_unit, scalar, Unit
 
 @pytest.mark.parametrize(
     "dimension        , prefix , symbol , name"     ,[
@@ -13,9 +13,15 @@ from unitsofmeasure import Dimension, Unit
     (Dimension(cd=1)  ,      0 , "cd"   , "candela" ),
     (Dimension(mol=1) ,      0 , "mol"  , "mole"    )
 ])
-def test_unit(dimension: Dimension, prefix: int, symbol: str, name: str):
+def test_unit(dimension: Dimension, prefix: int, symbol: str, name: str) -> None:
     unit = Unit(dimension=dimension, prefix=prefix, symbol=symbol, name=name)
     assert unit.dimension == dimension
     assert unit.prefix    == prefix
     assert unit.symbol    == symbol
     assert unit.name      == name
+
+def test_no_unit() -> None:
+    assert no_unit.dimension == scalar
+    assert no_unit.prefix    == no_prefix
+    assert no_unit.symbol    == ""
+    assert no_unit.name      == ""

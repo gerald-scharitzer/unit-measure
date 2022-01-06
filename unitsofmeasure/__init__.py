@@ -24,7 +24,7 @@ class Dimension:
             K:   int = 0,
             cd:  int = 0,
             mol: int = 0
-        ):
+        ) -> None:
         self.kg  = kg
         self.m   = m
         self.s   = s
@@ -46,6 +46,46 @@ class Dimension:
             self.mol == other.mol
         )
 
+scalar = Dimension()
+"""The null vector of dimensions"""
+
+class Prefix:
+    """A number to scale units.
+    
+    Each prefix has an integer base and exponent.
+    """
+
+    def __init__(
+            self,
+            base: int = 10,
+            exponent: int = 0,
+            symbol: str = "",
+            name: str = ""
+        ) -> None:
+        self.base = base
+        self.exponent = exponent
+        self.symbol = symbol
+        self.name = name
+    
+    def __eq__(self, other):
+        if type(self) != type(other):
+            return NotImplemented
+        return (
+            self.base     == other.base and
+            self.exponent == other.exponent
+        ) # TODO exponent zero with any base might make sense to return true as well
+
+no_prefix = Prefix()
+"""No prefix or the prefix of 1"""
+
+class PrefixClass:
+    """Dictionary of Prefixes"""
+
+    prefix_map: dict[str, Prefix] = {}
+
+    @classmethod
+    def get_prefixes(cls) -> dict[str, Prefix]:
+        return cls.prefix_map
 
 class Unit:
     """A Unit has a Dimension.
@@ -55,21 +95,24 @@ class Unit:
     Prefixes that are integer multiples of 3 in the interval [-24,24] map to SI prefixes.
     Units have a symbol: a short string used in formulas, tables, and charts.
     """
-    
+
     def __init__(
             self,
-            dimension: Dimension = Dimension(), # scalar
-            prefix: int = 0,
+            dimension: Dimension = scalar,
+            prefix: Prefix = no_prefix, # none = one
             symbol: str = "",
             name: str = ""
-        ):
+        ) -> None:
         self.dimension = dimension
         self.prefix = prefix
         self.symbol = symbol
         self.name = name
     
-    def __str__(self):
+    def __str__(self) -> str:
         return self.symbol
+
+no_unit = Unit()
+"""No unit or the unit of 1"""
 
 class UnitMap:
     """Map objects to their units.
@@ -81,10 +124,10 @@ class UnitMap:
     The units can be objects as well and need not be of type Unit.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.units = {} # dictionary maps id(object) to (object, unit)
     
-    def map_to_unit(self, o: object, unit: object):
+    def map_to_unit(self, o: object, unit: object) -> None:
         """Map the object ID to the tuple (object, unit) to keep a reference to the object.
 
         Otherwise the object could be garbage collected and its ID re-used for a different object.

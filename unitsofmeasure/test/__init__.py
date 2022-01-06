@@ -1,1 +1,1 @@
-"""Test unit-measure"""
+"""Test units-of-measure"""
