@@ -45,6 +45,17 @@ class Dimension:
             self.cd  == other.cd and
             self.mol == other.mol
         )
+    
+    def __repr__(self) -> str:
+        return (self.__class__.__name__ +
+            "(kg="   + repr(self.kg)  +
+            ", m="   + repr(self.m)   +
+            ", s="   + repr(self.s)   +
+            ", A="   + repr(self.A)   +
+            ", K="   + repr(self.K)   +
+            ", cd="  + repr(self.cd)  +
+            ", mol=" + repr(self.mol) +
+            ")")
 
 scalar = Dimension()
 """The null vector of dimensions"""
@@ -75,6 +86,14 @@ class Prefix:
             self.exponent == other.exponent
         ) # TODO exponent zero with any base might make sense to return true as well
 
+    def __repr__(self) -> str:
+        return (self.__class__.__name__ +
+            "(base=" + repr(self.base) +
+            ", exponent=" + repr(self.exponent) +
+            ", symbol=\"" + self.symbol +
+            "\", name=\"" + self.name +
+            "\")")
+
 no_prefix = Prefix()
 """No prefix or the prefix of 1"""
 
@@ -96,6 +115,7 @@ class Unit:
     Units have a symbol: a short string used in formulas, tables, and charts.
     """
 
+    # TODO add scale
     def __init__(
             self,
             dimension: Dimension = scalar,
@@ -110,6 +130,14 @@ class Unit:
     
     def __str__(self) -> str:
         return self.symbol
+    
+    def __repr__(self) -> str:
+        return (self.__class__.__name__ +
+            "(dimension=" + repr(self.dimension) +
+            ", prefix=" + repr(self.prefix) +
+            ", symbol=\"" + self.symbol +
+            "\", name=\"" + self.name +
+            "\")")
 
 no_unit = Unit()
 """No unit or the unit of 1"""
