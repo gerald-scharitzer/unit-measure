@@ -7,6 +7,8 @@ Classes
   UnitMap: Map objects to units
 """
 
+from fractions import Fraction
+
 # TODO map dimensions to quantity names
 class Dimension:
     """Dimension of quantity as defined in the International System of Units - 9th edition
@@ -110,34 +112,38 @@ class Unit:
     """A Unit has a Dimension.
 
     Scalars are the null vector, which is the default dimension.
+    Units have a symbol: a short string used in formulas, tables, and charts.
     Units have a prefix, which specifies the order of magnitude in base 10.
     Prefixes that are integer multiples of 3 in the interval [-24,24] map to SI prefixes.
-    Units have a symbol: a short string used in formulas, tables, and charts.
     """
 
-    # TODO add scale
+    _one = Fraction(1,1)
+
     def __init__(
             self,
+            symbol: str = "",
+            name: str = "",
             dimension: Dimension = scalar,
             prefix: Prefix = no_prefix, # none = one
-            symbol: str = "",
-            name: str = ""
+            factor: Fraction = _one
         ) -> None:
-        self.dimension = dimension
-        self.prefix = prefix
         self.symbol = symbol
         self.name = name
+        self.dimension = dimension
+        self.prefix = prefix
+        self.factor = factor
     
     def __str__(self) -> str:
         return self.symbol
     
     def __repr__(self) -> str:
         return (self.__class__.__name__ +
-            "(dimension=" + repr(self.dimension) +
-            ", prefix=" + repr(self.prefix) +
-            ", symbol=\"" + self.symbol +
+            "(symbol=\"" + self.symbol +
             "\", name=\"" + self.name +
-            "\")")
+            "\", dimension=" + repr(self.dimension) +
+            ", prefix=" + repr(self.prefix) +
+            ", factor=" + repr(self.factor) +
+            ")")
 
 no_unit = Unit()
 """No unit or the unit of 1"""

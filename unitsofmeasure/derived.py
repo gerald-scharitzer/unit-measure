@@ -9,28 +9,28 @@ class SiDerivedUnits(UnitClass):
     The symbol of unit degree Celsius is °C, but that is not a valid Python identifier.
     Therefore it is mapped to degC.
     """
-    rad  = Unit(Dimension(), 0, "rad", "radian")
-    sr   = Unit(Dimension(), 0, "sr", "steradian")
-    Hz   = Unit(Dimension(s=-1), 0, "Hz", "hertz")
-    N    = Unit(Dimension(kg=1, m=1, s=-2), 0, "N", "newton")
-    Pa   = Unit(Dimension(kg=1, m=-1, s=-2), 0, "Pa", "pascal")
-    J    = Unit(Dimension(kg=1, m=2, s=-2), 0, "J", "joule")
-    W    = Unit(Dimension(kg=1, m=2, s=-3), 0, "W", "watt")
-    C    = Unit(Dimension(A=1, s=1), 0, "C", "coulomb")
-    V    = Unit(Dimension(kg=1, m=2, s=-3, A=-1), 0, "V", "volt")
-    F    = Unit(Dimension(kg=-1, m=-2, s=4, A=2), 0, "F", "farad")
-    Ω    = Unit(Dimension(kg=1, m=2, s=-3, A=-2), 0, "Ω", "ohm")
-    S    = Unit(Dimension(kg=-1, m=-2, s=3, A=2), 0, "S", "siemens")
-    Wb   = Unit(Dimension(kg=1, m=2, s=-2, A=-1), 0, "Wb", "weber")
-    T    = Unit(Dimension(kg=1, s=-2, A=-1), 0, "T", "tesla")
-    H    = Unit(Dimension(kg=1, m=2, s=-2, A=-2), 0, "H", "henry")
-    degC = Unit(Dimension(K=1), 0, "°C", "degree Celsius")
-    lm   = Unit(Dimension(cd=1), 0, "lm", "lumen")
-    lx   = Unit(Dimension(cd=1, m=2), 0, "lx", "lux")
-    Bq   = Unit(Dimension(s=-1), 0, "Bq", "becquerel")
-    Gy   = Unit(Dimension(m=2, s=-2), 0, "Gy", "gray")
-    Sv   = Unit(Dimension(m=2, s=-2), 0, "Sv", "sievert")
-    kat  = Unit(Dimension(mol=1, s=-1), 0, "kat", "katal")
+    rad  = Unit("rad", "radian") # plane angle
+    sr   = Unit("sr", "steradian") # solid angle
+    Hz   = Unit("Hz", "hertz", Dimension(s=-1)) # frequency
+    N    = Unit("N", "newton", Dimension(kg=1, m=1, s=-2)) # force
+    Pa   = Unit("Pa", "pascal", Dimension(kg=1, m=-1, s=-2)) # pressure
+    J    = Unit("J", "joule", Dimension(kg=1, m=2, s=-2)) # energy
+    W    = Unit("W", "watt", Dimension(kg=1, m=2, s=-3)) # power
+    C    = Unit("C", "coulomb", Dimension(A=1, s=1)) # electric charge
+    V    = Unit("V", "volt", Dimension(kg=1, m=2, s=-3, A=-1)) # electric potential difference
+    F    = Unit("F", "farad", Dimension(kg=-1, m=-2, s=4, A=2)) # capacitance
+    Ω    = Unit("Ω", "ohm", Dimension(kg=1, m=2, s=-3, A=-2)) # electric resistance
+    S    = Unit("S", "siemens", Dimension(kg=-1, m=-2, s=3, A=2)) # electric conductance
+    Wb   = Unit("Wb", "weber", Dimension(kg=1, m=2, s=-2, A=-1)) # magnetic flux
+    T    = Unit("T", "tesla", Dimension(kg=1, s=-2, A=-1)) # magnetic flux density
+    H    = Unit("H", "henry", Dimension(kg=1, m=2, s=-2, A=-2)) # inductance
+    degC = Unit("°C", "degree Celsius", Dimension(K=1)) # Celsius temperature
+    lm   = Unit("lm", "lumen", Dimension(cd=1)) # luminous flux
+    lx   = Unit("lx", "lux", Dimension(cd=1, m=-2)) # illuminance
+    Bq   = Unit("Bq", "becquerel", Dimension(s=-1)) # activity referred to a radionucide
+    Gy   = Unit("Gy", "gray", Dimension(m=2, s=-2)) # absorbed dose
+    Sv   = Unit("Sv", "sievert", Dimension(m=2, s=-2)) # dose equivalent
+    kat  = Unit("kat", "katal", Dimension(mol=1, s=-1)) # catalytic activity
 
     @classmethod
     def get_units(cls) -> dict[str, Unit]:
