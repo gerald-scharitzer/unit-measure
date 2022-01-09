@@ -1,10 +1,10 @@
+"""Test Unit"""
+from unitsofmeasure.base import SiBaseUnits
 from unitsofmeasure.derived import SiDerivedUnits
 
-def test_it():
-    items = SiDerivedUnits.get_units().items()
-    assert len(items) == 22 # there are 22 derived units
-
-    for (key, unit) in items:
+def test_it() -> None:
+    units = SiBaseUnits.get_units() | SiDerivedUnits.get_units()
+    for (key, unit) in units.items():
         print(key, unit, unit.name)
         if (key == "degC"):
             assert unit.symbol == "°C"

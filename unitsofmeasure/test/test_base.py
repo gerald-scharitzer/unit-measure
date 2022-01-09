@@ -5,5 +5,5 @@ def test_it():
     assert len(items) == 7 # there are 7 base units
 
     for (key, unit) in items:
-        print(key, unit)
+        print(key, unit, unit.name)
         assert key == unit.symbol
