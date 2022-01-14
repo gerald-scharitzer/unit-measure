@@ -1,9 +1,9 @@
-"""Test Unit"""
-from unitsofmeasure.base import SiBaseUnits
-from unitsofmeasure.derived import SiDerivedUnits
+"""Test SI Units"""
+from unitsofmeasure import base
+from unitsofmeasure import derived
 
 def test_it() -> None:
-    units = SiBaseUnits.get_units() | SiDerivedUnits.get_units()
+    units = base.si_base_units | derived.si_derived_units
     for (key, unit) in units.items():
         print(key, unit, unit.name)
         if (key == "degC"):

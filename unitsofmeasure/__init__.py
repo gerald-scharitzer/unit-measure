@@ -2,7 +2,7 @@
 
 Classes
 
-  Dimension: Linear combination of SI base units
+  Dimension: Product of integer powers SI base units
   Unit: Dimension mapped to a symbol and a name
   UnitMap: Map objects to units
 """
@@ -13,7 +13,7 @@ from fractions import Fraction
 class Dimension:
     """Dimension of quantity as defined in the International System of Units - 9th edition
 
-    A linear combination of SI base units.
+    A product of integer powers of SI base units.
     See https://www.bipm.org/en/publications/si-brochure
     """
 
@@ -175,12 +175,3 @@ class UnitMap:
 
         # map the object ID to its tuple (object, unit) and then return the unit
         return self.units[id(o)][1]
-
-class UnitClass:
-    """Dictionary of Units"""
-
-    unit_map: dict[str, Unit] = {}
-
-    @classmethod
-    def get_units(cls) -> dict[str, Unit]:
-        return cls.unit_map

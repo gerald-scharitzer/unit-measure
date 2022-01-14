@@ -1,7 +1,7 @@
-from unitsofmeasure.derived import SiDerivedUnits
+from unitsofmeasure import derived
 
 def test_it():
-    items = SiDerivedUnits.get_units().items()
+    items = derived.si_derived_units.items()
     assert len(items) == 22 # there are 22 derived units
 
     for (key, unit) in items:
