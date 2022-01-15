@@ -5,6 +5,10 @@ Classes
   Dimension: Product of integer powers SI base units
   Unit: Dimension mapped to a symbol and a name
   UnitMap: Map objects to units
+
+Objects
+
+  scalar: No dimension, the null vector of dimensions
 """
 
 from fractions import Fraction
@@ -98,15 +102,6 @@ class Prefix:
 
 no_prefix = Prefix()
 """No prefix or the prefix of 1"""
-
-class PrefixClass:
-    """Dictionary of Prefixes"""
-
-    prefix_map: dict[str, Prefix] = {}
-
-    @classmethod
-    def get_prefixes(cls) -> dict[str, Prefix]:
-        return cls.prefix_map
 
 class Unit:
     """A Unit has a Dimension.

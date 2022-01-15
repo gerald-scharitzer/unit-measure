@@ -1,7 +1,7 @@
-from unitsofmeasure.decprefix import DecimalPrefixes
+from unitsofmeasure import decprefix
 
 def test_it():
-    items = DecimalPrefixes.get_prefixes().items()
+    items = decprefix.si_decimal_prefixes.items()
     assert len(items) == 20 # there are 20 decimal prefixes
 
     for (key, prefix) in items:
