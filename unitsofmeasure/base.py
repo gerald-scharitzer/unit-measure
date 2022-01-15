@@ -1,6 +1,5 @@
 """SI Base Units"""
-from unitsofmeasure import Dimension, Unit
-from unitsofmeasure import decprefix
+from unitsofmeasure import decprefix, Dimension, Unit
 
 kg  = Unit("kg", "kilogram", Dimension(kg=1), decprefix.k)
 m   = Unit("m", "metre", Dimension(m=1))

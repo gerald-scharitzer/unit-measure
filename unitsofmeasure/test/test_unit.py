@@ -1,8 +1,7 @@
 """Test Unit"""
 import pytest
 from fractions import Fraction
-from unitsofmeasure import Dimension, no_prefix, no_unit, Prefix, scalar, Unit
-from unitsofmeasure import decprefix
+from unitsofmeasure import decprefix, Dimension, no_prefix, no_unit, Prefix, scalar, Unit
 
 _one = Fraction(1,1)
 
