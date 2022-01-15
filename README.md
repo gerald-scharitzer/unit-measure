@@ -28,6 +28,7 @@ Download and install the library with `python -m pip install units-of-measure`.
 
 1. Clone with `git clone https://github.com/gerald-scharitzer/units-of-measure.git`
 2. Test with `pytest`
-3. Build with `python -m build`
-4. Check with `python -m twine check dist/*`
-5. Publish with `python -m twine upload dist/*`
+3. Document with `pydoc -w unitsofmeasure`
+4. Build with `python -m build`
+5. Check with `python -m twine check dist/*`
+6. Publish with `python -m twine upload dist/*`

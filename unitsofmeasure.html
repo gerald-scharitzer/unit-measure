@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package unitsofmeasure</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>unitsofmeasure</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/tzeentch/projects/units-of-measure/unitsofmeasure/__init__.py">/home/tzeentch/projects/units-of-measure/unitsofmeasure/__init__.py</a></font></td></tr></table>
+    <p><tt>Units&nbsp;of&nbsp;Measure<br>
+&nbsp;<br>
+Classes<br>
+&nbsp;<br>
+&nbsp;&nbsp;<a href="#Dimension">Dimension</a>:&nbsp;Product&nbsp;of&nbsp;integer&nbsp;powers&nbsp;SI&nbsp;base&nbsp;units<br>
+&nbsp;&nbsp;<a href="#Unit">Unit</a>:&nbsp;<a href="#Dimension">Dimension</a>&nbsp;mapped&nbsp;to&nbsp;a&nbsp;symbol&nbsp;and&nbsp;a&nbsp;name<br>
+&nbsp;&nbsp;<a href="#UnitMap">UnitMap</a>:&nbsp;Map&nbsp;objects&nbsp;to&nbsp;units<br>
+&nbsp;<br>
+Objects<br>
+&nbsp;<br>
+&nbsp;&nbsp;scalar:&nbsp;No&nbsp;dimension,&nbsp;the&nbsp;null&nbsp;vector&nbsp;of&nbsp;dimensions</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="unitsofmeasure.base.html">base</a><br>
+</td><td width="25%" valign=top><a href="unitsofmeasure.decprefix.html">decprefix</a><br>
+</td><td width="25%" valign=top><a href="unitsofmeasure.derived.html">derived</a><br>
+</td><td width="25%" valign=top><a href="unitsofmeasure.test.html"><strong>test</strong>&nbsp;(package)</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="unitsofmeasure.html#Dimension">Dimension</a>
+</font></dt><dt><font face="helvetica, arial"><a href="unitsofmeasure.html#Prefix">Prefix</a>
+</font></dt><dt><font face="helvetica, arial"><a href="unitsofmeasure.html#Unit">Unit</a>
+</font></dt><dt><font face="helvetica, arial"><a href="unitsofmeasure.html#UnitMap">UnitMap</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Dimension">class <strong>Dimension</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Dimension">Dimension</a>(kg:&nbsp;int&nbsp;=&nbsp;0,&nbsp;m:&nbsp;int&nbsp;=&nbsp;0,&nbsp;s:&nbsp;int&nbsp;=&nbsp;0,&nbsp;A:&nbsp;int&nbsp;=&nbsp;0,&nbsp;K:&nbsp;int&nbsp;=&nbsp;0,&nbsp;cd:&nbsp;int&nbsp;=&nbsp;0,&nbsp;mol:&nbsp;int&nbsp;=&nbsp;0)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+<a href="#Dimension">Dimension</a>&nbsp;of&nbsp;quantity&nbsp;as&nbsp;defined&nbsp;in&nbsp;the&nbsp;International&nbsp;System&nbsp;of&nbsp;Units&nbsp;-&nbsp;9th&nbsp;edition<br>
+&nbsp;<br>
+A&nbsp;product&nbsp;of&nbsp;integer&nbsp;powers&nbsp;of&nbsp;SI&nbsp;base&nbsp;units.<br>
+See&nbsp;<a href="https://www.bipm.org/en/publications/si-brochure">https://www.bipm.org/en/publications/si-brochure</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Dimension-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Dimension-__init__"><strong>__init__</strong></a>(self, kg: int = 0, m: int = 0, s: int = 0, A: int = 0, K: int = 0, cd: int = 0, mol: int = 0) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Dimension-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Prefix">class <strong>Prefix</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Prefix">Prefix</a>(base:&nbsp;int&nbsp;=&nbsp;10,&nbsp;exponent:&nbsp;int&nbsp;=&nbsp;0,&nbsp;symbol:&nbsp;str&nbsp;=&nbsp;'',&nbsp;name:&nbsp;str&nbsp;=&nbsp;'')&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;number&nbsp;to&nbsp;scale&nbsp;units.<br>
+&nbsp;<br>
+Each&nbsp;prefix&nbsp;has&nbsp;an&nbsp;integer&nbsp;base&nbsp;and&nbsp;exponent.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Prefix-__eq__"><strong>__eq__</strong></a>(self, other)</dt><dd><tt>Return&nbsp;self==value.</tt></dd></dl>
+
+<dl><dt><a name="Prefix-__init__"><strong>__init__</strong></a>(self, base: int = 10, exponent: int = 0, symbol: str = '', name: str = '') -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Prefix-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Unit">class <strong>Unit</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Unit">Unit</a>(symbol:&nbsp;str&nbsp;=&nbsp;'',&nbsp;name:&nbsp;str&nbsp;=&nbsp;'',&nbsp;dimension:&nbsp;unitsofmeasure.<a href="#Dimension">Dimension</a>&nbsp;=&nbsp;<a href="#Dimension">Dimension</a>(kg=0,&nbsp;m=0,&nbsp;s=0,&nbsp;A=0,&nbsp;K=0,&nbsp;cd=0,&nbsp;mol=0),&nbsp;prefix:&nbsp;unitsofmeasure.<a href="#Prefix">Prefix</a>&nbsp;=&nbsp;<a href="#Prefix">Prefix</a>(base=10,&nbsp;exponent=0,&nbsp;symbol="",&nbsp;name=""),&nbsp;factor:&nbsp;fractions.Fraction&nbsp;=&nbsp;Fraction(1,&nbsp;1))&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+A&nbsp;<a href="#Unit">Unit</a>&nbsp;has&nbsp;a&nbsp;<a href="#Dimension">Dimension</a>.<br>
+&nbsp;<br>
+Scalars&nbsp;are&nbsp;the&nbsp;null&nbsp;vector,&nbsp;which&nbsp;is&nbsp;the&nbsp;default&nbsp;dimension.<br>
+Units&nbsp;have&nbsp;a&nbsp;symbol:&nbsp;a&nbsp;short&nbsp;string&nbsp;used&nbsp;in&nbsp;formulas,&nbsp;tables,&nbsp;and&nbsp;charts.<br>
+Units&nbsp;have&nbsp;a&nbsp;prefix,&nbsp;which&nbsp;specifies&nbsp;the&nbsp;order&nbsp;of&nbsp;magnitude&nbsp;in&nbsp;base&nbsp;10.<br>
+Prefixes&nbsp;that&nbsp;are&nbsp;integer&nbsp;multiples&nbsp;of&nbsp;3&nbsp;in&nbsp;the&nbsp;interval&nbsp;[-24,24]&nbsp;map&nbsp;to&nbsp;SI&nbsp;prefixes.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Unit-__init__"><strong>__init__</strong></a>(self, symbol: str = '', name: str = '', dimension: unitsofmeasure.Dimension = Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=0), prefix: unitsofmeasure.Prefix = Prefix(base=10, exponent=0, symbol="", name=""), factor: fractions.Fraction = Fraction(1, 1)) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="Unit-__repr__"><strong>__repr__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;repr(self).</tt></dd></dl>
+
+<dl><dt><a name="Unit-__str__"><strong>__str__</strong></a>(self) -&gt; str</dt><dd><tt>Return&nbsp;str(self).</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="UnitMap">class <strong>UnitMap</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#UnitMap">UnitMap</a>()&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Map&nbsp;objects&nbsp;to&nbsp;their&nbsp;units.<br>
+&nbsp;<br>
+The&nbsp;objects&nbsp;are&nbsp;not&nbsp;used&nbsp;as&nbsp;keys&nbsp;directly,&nbsp;because&nbsp;not&nbsp;all&nbsp;objects&nbsp;are&nbsp;hashable.<br>
+Instead&nbsp;the&nbsp;integer&nbsp;value&nbsp;of&nbsp;id(<a href="builtins.html#object">object</a>)&nbsp;is&nbsp;used&nbsp;as&nbsp;key,<br>
+but&nbsp;two&nbsp;objects&nbsp;with&nbsp;non-overlapping&nbsp;lifetimes&nbsp;may&nbsp;have&nbsp;the&nbsp;same&nbsp;id()&nbsp;value.<br>
+See&nbsp;<a href="https://docs.python.org/3/library/functions.html#id">https://docs.python.org/3/library/functions.html#id</a>.<br>
+The&nbsp;units&nbsp;can&nbsp;be&nbsp;objects&nbsp;as&nbsp;well&nbsp;and&nbsp;need&nbsp;not&nbsp;be&nbsp;of&nbsp;type&nbsp;<a href="#Unit">Unit</a>.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="UnitMap-__init__"><strong>__init__</strong></a>(self) -&gt; None</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="UnitMap-get_unit_of"><strong>get_unit_of</strong></a>(self, o: object) -&gt; object</dt><dd><tt>Return&nbsp;the&nbsp;unit&nbsp;mapped&nbsp;to&nbsp;the&nbsp;<a href="builtins.html#object">object</a>.</tt></dd></dl>
+
+<dl><dt><a name="UnitMap-map_to_unit"><strong>map_to_unit</strong></a>(self, o: object, unit: object) -&gt; None</dt><dd><tt>Map&nbsp;the&nbsp;<a href="builtins.html#object">object</a>&nbsp;ID&nbsp;to&nbsp;the&nbsp;tuple&nbsp;(<a href="builtins.html#object">object</a>,&nbsp;unit)&nbsp;to&nbsp;keep&nbsp;a&nbsp;reference&nbsp;to&nbsp;the&nbsp;<a href="builtins.html#object">object</a>.<br>
+&nbsp;<br>
+Otherwise&nbsp;the&nbsp;<a href="builtins.html#object">object</a>&nbsp;could&nbsp;be&nbsp;garbage&nbsp;collected&nbsp;and&nbsp;its&nbsp;ID&nbsp;re-used&nbsp;for&nbsp;a&nbsp;different&nbsp;<a href="builtins.html#object">object</a>.<br>
+TODO&nbsp;Use&nbsp;weak&nbsp;references&nbsp;for&nbsp;objects&nbsp;and&nbsp;remove&nbsp;the&nbsp;<a href="builtins.html#object">object</a>&nbsp;ID&nbsp;from&nbsp;the&nbsp;dictionary&nbsp;on&nbsp;finalize.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>no_prefix</strong> = Prefix(base=10, exponent=0, symbol="", name="")<br>
+<strong>no_unit</strong> = Unit(symbol="", name="", dimension=Dimension(kg=...nt=0, symbol="", name=""), factor=Fraction(1, 1))<br>
+<strong>scalar</strong> = Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=0)</td></tr></table>
+</body></html>

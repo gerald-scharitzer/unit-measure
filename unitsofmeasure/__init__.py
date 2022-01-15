@@ -63,8 +63,8 @@ class Dimension:
             ", mol=" + repr(self.mol) +
             ")")
 
+# The null vector of dimensions
 scalar = Dimension()
-"""The null vector of dimensions"""
 
 class Prefix:
     """A number to scale units.
@@ -100,8 +100,8 @@ class Prefix:
             "\", name=\"" + self.name +
             "\")")
 
+# No prefix or the prefix of 1
 no_prefix = Prefix()
-"""No prefix or the prefix of 1"""
 
 class Unit:
     """A Unit has a Dimension.
@@ -140,8 +140,8 @@ class Unit:
             ", factor=" + repr(self.factor) +
             ")")
 
+# No unit or the unit of 1
 no_unit = Unit()
-"""No unit or the unit of 1"""
 
 class UnitMap:
     """Map objects to their units.
