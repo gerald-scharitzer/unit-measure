@@ -1,24 +1,15 @@
-"""Units of Measure
+"""Units of Measure - based on the International System of Units - 9th edition
 
-Classes
-
-  Dimension: Product of integer powers SI base units
-  Unit: Dimension mapped to a symbol and a name
-  UnitMap: Map objects to units
-
-Objects
-
-  scalar: No dimension, the null vector of dimensions
+https://www.bipm.org/en/publications/si-brochure
 """
-
 from fractions import Fraction
+from weakref import ref
 
 # TODO map dimensions to quantity names
 class Dimension:
-    """Dimension of quantity as defined in the International System of Units - 9th edition
-
-    A product of integer powers of SI base units.
-    See https://www.bipm.org/en/publications/si-brochure
+    """Dimension of quantity: a product of integer powers of SI base units
+    
+    For each SI base unit symbol (kg, m, s, A, K, cd, mol) an attribute with the same name stores the exponent.
     """
 
     def __init__(
@@ -39,7 +30,7 @@ class Dimension:
         self.cd  = cd
         self.mol = mol
     
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         if type(self) != type(other):
             return NotImplemented
         return (
@@ -84,7 +75,7 @@ class Prefix:
         self.symbol = symbol
         self.name = name
     
-    def __eq__(self, other):
+    def __eq__(self, other) -> bool:
         if type(self) != type(other):
             return NotImplemented
         return (
@@ -92,6 +83,9 @@ class Prefix:
             self.exponent == other.exponent
         ) # TODO exponent zero with any base might make sense to return true as well
 
+    def __str__(self) -> str:
+        return self.symbol
+    
     def __repr__(self) -> str:
         return (self.__class__.__name__ +
             "(base=" + repr(self.base) +
@@ -128,6 +122,17 @@ class Unit:
         self.prefix = prefix
         self.factor = factor
     
+    def __eq__(self, other: object) -> bool:
+        if type(self) != type(other):
+            return NotImplemented
+        return (
+            self.symbol    == other.symbol    and
+            self.name      == other.name      and
+            self.dimension == other.dimension and
+            self.prefix    == other.prefix    and
+            self.factor    == other.factor
+        )
+    
     def __str__(self) -> str:
         return self.symbol
     
@@ -143,6 +148,9 @@ class Unit:
 # No unit or the unit of 1
 no_unit = Unit()
 
+class GarbageError(Exception):
+    pass
+
 class UnitMap:
     """Map objects to their units.
 
@@ -154,19 +162,24 @@ class UnitMap:
     """
 
     def __init__(self) -> None:
-        self.units = {} # dictionary maps id(object) to (object, unit)
+        self.units = {} # dictionary maps id(object) to (ref(object), unit)
     
     def map_to_unit(self, o: object, unit: object) -> None:
         """Map the object ID to the tuple (object, unit) to keep a reference to the object.
 
         Otherwise the object could be garbage collected and its ID re-used for a different object.
-        TODO Use weak references for objects and remove the object ID from the dictionary on finalize.
+        TODO Remove the object ID from the dictionary on finalize.
         """
-        
-        self.units[id(o)] = (o, unit)
+        self.units[id(o)] = (ref(o), unit)
 
     def get_unit_of(self, o: object) -> object:
-        """Return the unit mapped to the object."""
+        """Return the unit mapped to the object.
+        
+        Throws GarbageError when to object was garbage-collected already.
+        """
 
-        # map the object ID to its tuple (object, unit) and then return the unit
-        return self.units[id(o)][1]
+        # map the object ID to its tuple (ref, unit) and then return the unit
+        (weak, unit) = self.units[id(o)]
+        if (weak() == None):
+            raise GarbageError
+        return unit
