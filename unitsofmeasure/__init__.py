@@ -183,3 +183,10 @@ class UnitMap:
         if (weak() == None):
             raise GarbageError
         return unit
+
+def map_to_unit(map: UnitMap, unit: object): # -> ((o: object) -> object) requires Python 3.11
+    def wrap(o: object) -> object:
+        map.map_to_unit(o, unit)
+        return o
+    # map function to unit
+    return wrap
