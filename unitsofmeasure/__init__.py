@@ -184,9 +184,16 @@ class UnitMap:
             raise GarbageError
         return unit
 
-def map_to_unit(map: UnitMap, unit: object): # -> ((o: object) -> object) requires Python 3.11
+# default unit map
+unit_map = UnitMap()
+
+def map_to_unit(unit: object, map: UnitMap = unit_map): # -> ((o: object) -> object) requires Python 3.11
+    """Decorate functions or classes with units."""
     def wrap(o: object) -> object:
         map.map_to_unit(o, unit)
         return o
-    # map function to unit
     return wrap
+
+def get_unit_of(o: object) -> object:
+    """Get unit from default map."""
+    return unit_map.get_unit_of(o)

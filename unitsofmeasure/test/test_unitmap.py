@@ -1,5 +1,5 @@
 """Test UnitMap"""
-from unitsofmeasure import map_to_unit, Unit, UnitMap
+from unitsofmeasure import get_unit_of, map_to_unit, Unit, UnitMap
 
 def test_it() -> None:
     # not all objects are weakly referencable, but class instances are
@@ -15,12 +15,11 @@ def test_it() -> None:
     assert unit == b
 
 def test_decorator() -> None:
-    units = UnitMap()
     b = Unit("b", "bit")
 
-    @map_to_unit(units, b)
+    @map_to_unit(b)
     def func() -> int:
         return 10
 
-    unit = units.get_unit_of(func)
+    unit = get_unit_of(func)
     assert unit == b
