@@ -22,6 +22,9 @@ class Dimension:
             cd:  int = 0,
             mol: int = 0
         ) -> None:
+        """The default dimension is the scalar, where all exponents are 0.
+
+        Thus the product is 1, the identity element of dimensions."""
         self.kg  = kg
         self.m   = m
         self.s   = s
@@ -54,13 +57,14 @@ class Dimension:
             ", mol=" + repr(self.mol) +
             ")")
 
-# The null vector of dimensions
+# The identity element of dimensions
 scalar = Dimension()
 
 class Prefix:
-    """A number to scale units.
+    """A number to scale units in orders of magnitude.
     
     Each prefix has an integer base and exponent.
+    The base is the magnitude and the exponent is the number of orders.
     """
 
     def __init__(
@@ -70,18 +74,20 @@ class Prefix:
             symbol: str = "",
             name: str = ""
         ) -> None:
+        """The default is 10 raised to 0, resulting in the value 1"""
         self.base = base
         self.exponent = exponent
         self.symbol = symbol
         self.name = name
     
     def __eq__(self, other) -> bool:
+        """Exponent zero with different bases is not equal, because the same non-zero exponent results in different values."""
         if type(self) != type(other):
             return NotImplemented
         return (
             self.base     == other.base and
             self.exponent == other.exponent
-        ) # TODO exponent zero with any base might make sense to return true as well
+        )
 
     def __str__(self) -> str:
         return self.symbol
@@ -100,10 +106,10 @@ no_prefix = Prefix()
 class Unit:
     """A Unit has a Dimension.
 
-    Scalars are the null vector, which is the default dimension.
+    Scalars are the identity element, which is the default dimension.
     Units have a symbol: a short string used in formulas, tables, and charts.
-    Units have a prefix, which specifies the order of magnitude in base 10.
-    Prefixes that are integer multiples of 3 in the interval [-24,24] map to SI prefixes.
+    Units have a prefix, which specifies the order of magnitude.
+    Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24] map to SI prefixes.
     """
 
     _one = Fraction(1,1)
