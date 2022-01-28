@@ -34,6 +34,7 @@ class Dimension:
         self.mol = mol
     
     def __eq__(self, other) -> bool:
+        """Two dimensions are equal if all exponents are equal."""
         if type(self) != type(other):
             return NotImplemented
         return (
@@ -47,6 +48,7 @@ class Dimension:
         )
     
     def __repr__(self) -> str:
+        """Returns the equivalent constructor"""
         return (self.__class__.__name__ +
             "(kg="   + repr(self.kg)  +
             ", m="   + repr(self.m)   +
@@ -61,10 +63,16 @@ class Dimension:
 scalar = Dimension()
 
 class Prefix:
-    """A number to scale units in orders of magnitude.
+    """Order of magnitude with an integer base and exponent
     
-    Each prefix has an integer base and exponent.
     The base is the magnitude and the exponent is the number of orders.
+    Prefixes have the following attributes.
+    - base: magnitude
+    - exponent: number of orders
+    - symbol: short string used in formulas, tables, and charts
+    - name: long string used in flow text
+    Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24] map to SI decimal prefixes.
+    Prefixes with base 2 and exponents that are integer multiples of 10 up to 80 map to SI binary prefixes.
     """
 
     def __init__(
@@ -74,7 +82,7 @@ class Prefix:
             symbol: str = "",
             name: str = ""
         ) -> None:
-        """The default is 10 raised to 0, resulting in the value 1"""
+        """The default is 10 raised to 0, resulting in the value 1, the identity element of prefixes"""
         self.base = base
         self.exponent = exponent
         self.symbol = symbol
@@ -90,9 +98,11 @@ class Prefix:
         )
 
     def __str__(self) -> str:
+        """Returns the symbol"""
         return self.symbol
     
     def __repr__(self) -> str:
+        """Returns the equivalent constructor"""
         return (self.__class__.__name__ +
             "(base=" + repr(self.base) +
             ", exponent=" + repr(self.exponent) +
@@ -100,16 +110,18 @@ class Prefix:
             "\", name=\"" + self.name +
             "\")")
 
-# No prefix or the prefix of 1
+# No prefix or the prefix of 1, the identity element of prefixes
 no_prefix = Prefix()
 
 class Unit:
-    """A Unit has a Dimension.
+    """Dimension with prefix and factor
 
-    Scalars are the identity element, which is the default dimension.
-    Units have a symbol: a short string used in formulas, tables, and charts.
-    Units have a prefix, which specifies the order of magnitude.
-    Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24] map to SI prefixes.
+    Units have the following attributes.
+    - symbol: short string used in formulas, tables, and charts
+    - name: long string used in flow text
+    - dimension: Scalars are the identity element, which is the default dimension.
+    - prefix: order of magnitude (logarithmic scale)
+    - factor: rational scale (fraction of integers)
     """
 
     _one = Fraction(1,1)
@@ -122,6 +134,7 @@ class Unit:
             prefix: Prefix = no_prefix, # none = one
             factor: Fraction = _one
         ) -> None:
+        """The default unit is no unit, or the value of 1."""
         self.symbol = symbol
         self.name = name
         self.dimension = dimension
@@ -129,6 +142,7 @@ class Unit:
         self.factor = factor
     
     def __eq__(self, other: object) -> bool:
+        """Units are equal if all attributes are equal."""
         if type(self) != type(other):
             return NotImplemented
         return (
@@ -140,9 +154,11 @@ class Unit:
         )
     
     def __str__(self) -> str:
+        """Returns the symbol"""
         return self.symbol
     
     def __repr__(self) -> str:
+        """Returns the equivalent constructor"""
         return (self.__class__.__name__ +
             "(symbol=\"" + self.symbol +
             "\", name=\"" + self.name +
@@ -155,6 +171,7 @@ class Unit:
 no_unit = Unit()
 
 class GarbageError(Exception):
+    """The object was garbage-collected."""
     pass
 
 class UnitMap:
