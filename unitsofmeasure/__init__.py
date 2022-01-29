@@ -119,7 +119,7 @@ class Unit:
     Units have the following attributes.
     - symbol: short string used in formulas, tables, and charts
     - name: long string used in flow text
-    - dimension: Scalars are the identity element, which is the default dimension.
+    - dimension: product of integer powers of base units
     - prefix: order of magnitude (logarithmic scale)
     - factor: rational scale (fraction of integers)
     """
@@ -181,16 +181,21 @@ class UnitMap:
     Instead the integer value of id(object) is used as key,
     but two objects with non-overlapping lifetimes may have the same id() value.
     See https://docs.python.org/3/library/functions.html#id.
+    
+    To detect this case, a weak reference to the object is stored
+    in the dictionary value together with the unit.
+
     The units can be objects as well and need not be of type Unit.
     """
 
     def __init__(self) -> None:
+        """Create an empty map."""
         self.units = {} # dictionary maps id(object) to (ref(object), unit)
     
     def map_to_unit(self, o: object, unit: object) -> None:
-        """Map the object ID to the tuple (object, unit) to keep a reference to the object.
+        """Map the object ID to the tuple (ref(object), unit) to keep a weak reference to the object.
 
-        Otherwise the object could be garbage collected and its ID re-used for a different object.
+        Otherwise the object could be garbage-collected and its ID re-used for a different object without being detected.
         TODO Remove the object ID from the dictionary on finalize.
         """
         self.units[id(o)] = (ref(o), unit)
