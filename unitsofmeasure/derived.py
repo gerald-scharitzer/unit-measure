@@ -26,7 +26,7 @@ H    = Unit("H", "henry", Dimension(kg=1, m=2, s=-2, A=-2)) # inductance
 degC = Unit("°C", "degree Celsius", Dimension(K=1)) # Celsius temperature
 lm   = Unit("lm", "lumen", Dimension(cd=1)) # luminous flux
 lx   = Unit("lx", "lux", Dimension(cd=1, m=-2)) # illuminance
-Bq   = Unit("Bq", "becquerel", Dimension(s=-1)) # activity referred to a radionucide
+Bq   = Unit("Bq", "becquerel", Dimension(s=-1)) # activity referred to a radionuclide
 Gy   = Unit("Gy", "gray", Dimension(m=2, s=-2)) # absorbed dose
 Sv   = Unit("Sv", "sievert", Dimension(m=2, s=-2)) # dose equivalent
 kat  = Unit("kat", "katal", Dimension(mol=1, s=-1)) # catalytic activity

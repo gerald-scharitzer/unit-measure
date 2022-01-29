@@ -34,7 +34,7 @@ def test_prefix(base: int, exponent: int, symbol: str, name: str) -> None:
     assert prefix.name     == name
 
 def test_no_prefix() -> None:
-    assert no_prefix.base     == 10
-    assert no_prefix.exponent == 0
-    assert no_prefix.symbol   == ""
-    assert no_prefix.name     == ""
+    assert no_prefix.base        == 10
+    assert no_prefix.exponent    == 0
+    assert len(no_prefix.symbol) == 0
+    assert len(no_prefix.name)   == 0

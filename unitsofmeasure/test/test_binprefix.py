@@ -10,3 +10,5 @@ def test():
         assert prefix.base == 2
         assert prefix.exponent >= 10
         assert prefix.exponent <= 80
+        assert len(prefix.symbol) > 0
+        assert len(prefix.name) > 0

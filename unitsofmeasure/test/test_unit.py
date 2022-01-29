@@ -25,8 +25,8 @@ def test_unit(symbol: str, name: str, dimension: Dimension, prefix: Prefix, fact
     assert unit.factor    == factor
 
 def test_no_unit() -> None:
-    assert no_unit.symbol    == ""
-    assert no_unit.name      == ""
-    assert no_unit.dimension == scalar
-    assert no_unit.prefix    == no_prefix
-    assert no_unit.factor    == _one
+    assert len(no_unit.symbol) == 0
+    assert len(no_unit.name)   == 0
+    assert no_unit.dimension   == scalar
+    assert no_unit.prefix      == no_prefix
+    assert no_unit.factor      == _one
