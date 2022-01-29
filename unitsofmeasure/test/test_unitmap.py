@@ -1,7 +1,7 @@
 """Test UnitMap"""
 from unitsofmeasure import get_unit_of, map_to_unit, Unit, UnitMap
 
-def test_it() -> None:
+def test() -> None:
     # not all objects are weakly referencable, but class instances are
     # https://docs.python.org/3/library/weakref.html
     class Measure:

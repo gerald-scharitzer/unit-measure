@@ -1,6 +1,6 @@
 from unitsofmeasure import base
 
-def test_it():
+def test():
     items = base.si_base_units.items()
     assert len(items) == 7 # there are 7 base units
 
