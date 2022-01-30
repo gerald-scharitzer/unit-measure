@@ -174,9 +174,12 @@ class GarbageError(Exception):
     """The object was garbage-collected."""
     pass
 
+from typing import Generic, TypeVar
 from weakref import ref
 
-class UnitMap:
+T = TypeVar("T")
+
+class UnitMap(Generic[T]):
     """Map objects to their units.
 
     The objects are not used as keys directly, because not all objects are hashable.
@@ -190,11 +193,12 @@ class UnitMap:
     The units can be objects as well and need not be of type Unit.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, value:T = Unit) -> None:
         """Create an empty map."""
         self.units = {} # dictionary maps id(object) to (ref(object), unit)
+        self.value = value
     
-    def map_to_unit(self, o: object, unit: object) -> None:
+    def map_to_unit(self, o: object, unit: T) -> None:
         """Map the object ID to the tuple (ref(object), unit) to keep a weak reference to the object.
 
         Otherwise the object could be garbage-collected and its ID re-used for a different object without being detected.
@@ -203,7 +207,7 @@ class UnitMap:
         # TODO Guard against types re-using instances, instead of relying on ref
         self.units[id(o)] = (ref(o), unit)
 
-    def get_unit_of(self, o: object) -> object:
+    def get_unit_of(self, o: object) -> T:
         """Return the unit mapped to the object.
         
         Throws GarbageError when to object was garbage-collected already.
@@ -216,7 +220,7 @@ class UnitMap:
         return unit
 
 # default unit map
-unit_map = UnitMap()
+unit_map = UnitMap[Unit]()
 
 def map_to_unit(unit: object, map: UnitMap = unit_map): # -> ((o: object) -> object) requires Python 3.11
     """Decorate functions or classes with units."""

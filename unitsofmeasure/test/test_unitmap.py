@@ -9,7 +9,7 @@ def test() -> None:
             self.value = value
     measure = Measure(10)
     b = Unit("b", "bit")
-    units = UnitMap()
+    units = UnitMap[Unit]()
     units.map_to_unit(measure, b)
     unit = units.get_unit_of(measure)
     assert unit == b
