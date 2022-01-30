@@ -2,8 +2,6 @@
 
 https://www.bipm.org/en/publications/si-brochure
 """
-from fractions import Fraction
-from weakref import ref
 
 # TODO map dimensions to quantity names
 class Dimension:
@@ -113,6 +111,8 @@ class Prefix:
 # No prefix or the prefix of 1, the identity element of prefixes
 no_prefix = Prefix()
 
+from fractions import Fraction
+
 class Unit:
     """Dimension with prefix and factor
 
@@ -173,6 +173,8 @@ no_unit = Unit()
 class GarbageError(Exception):
     """The object was garbage-collected."""
     pass
+
+from weakref import ref
 
 class UnitMap:
     """Map objects to their units.
