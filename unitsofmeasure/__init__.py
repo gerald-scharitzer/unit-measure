@@ -196,8 +196,9 @@ class UnitMap:
         """Map the object ID to the tuple (ref(object), unit) to keep a weak reference to the object.
 
         Otherwise the object could be garbage-collected and its ID re-used for a different object without being detected.
-        TODO Remove the object ID from the dictionary on finalize.
         """
+        # TODO Remove the object ID from the dictionary on finalize.
+        # TODO Guard against types re-using instances, instead of relying on ref
         self.units[id(o)] = (ref(o), unit)
 
     def get_unit_of(self, o: object) -> object:
@@ -222,6 +223,6 @@ def map_to_unit(unit: object, map: UnitMap = unit_map): # -> ((o: object) -> obj
         return o
     return wrap
 
-def get_unit_of(o: object) -> object:
-    """Get unit from default map."""
-    return unit_map.get_unit_of(o)
+def get_unit_of(o: object, map: UnitMap = unit_map) -> object:
+    """Get unit of object from map."""
+    return map.get_unit_of(o)
