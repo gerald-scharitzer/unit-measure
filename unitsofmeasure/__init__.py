@@ -215,7 +215,7 @@ class UnitMap(Generic[T]):
 
         # map the object ID to its tuple (ref, unit) and then return the unit
         (weak, unit) = self.units[id(o)]
-        if (weak() == None):
+        if (weak() is None):
             raise GarbageError
         return unit
 
