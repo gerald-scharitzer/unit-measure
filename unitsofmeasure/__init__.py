@@ -2,6 +2,9 @@
 
 https://www.bipm.org/en/publications/si-brochure
 """
+from fractions import Fraction
+from typing import Generic, TypeVar
+from weakref import ref
 
 # TODO map dimensions to quantity names
 class Dimension:
@@ -58,7 +61,7 @@ class Dimension:
             ")")
 
 # The identity element of dimensions
-scalar = Dimension()
+SCALAR = Dimension()
 
 class Prefix:
     """Order of magnitude with an integer base and exponent
@@ -108,10 +111,8 @@ class Prefix:
             "\", name=\"" + self.name +
             "\")")
 
-# No prefix or the prefix of 1, the identity element of prefixes
-no_prefix = Prefix()
-
-from fractions import Fraction
+# The prefix of 1 (written as no prefix), the identity element of prefixes
+PREFIX_1 = Prefix()
 
 class Unit:
     """Dimension with prefix and factor
@@ -124,15 +125,15 @@ class Unit:
     - factor: rational scale (fraction of integers)
     """
 
-    _one = Fraction(1,1)
+    FRACTION_1 = Fraction(1,1)
 
     def __init__(
             self,
             symbol: str = "",
             name: str = "",
-            dimension: Dimension = scalar,
-            prefix: Prefix = no_prefix, # none = one
-            factor: Fraction = _one
+            dimension: Dimension = SCALAR,
+            prefix: Prefix = PREFIX_1, # none = one
+            factor: Fraction = FRACTION_1
         ) -> None:
         """The default unit is no unit, or the value of 1."""
         self.symbol = symbol
@@ -167,15 +168,12 @@ class Unit:
             ", factor=" + repr(self.factor) +
             ")")
 
-# No unit or the unit of 1
-no_unit = Unit()
+# The unit of 1 (written as no unit)
+UNIT_1 = Unit()
 
 class GarbageError(Exception):
     """The object was garbage-collected."""
     pass
-
-from typing import Generic, TypeVar
-from weakref import ref
 
 T = TypeVar("T")
 

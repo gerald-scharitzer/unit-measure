@@ -1,4 +1,4 @@
-from unitsofmeasure import accepted, no_prefix, Unit
+from unitsofmeasure import accepted, PREFIX_1, Unit
 
 def test():
     items = accepted.si_accepted_units.items()
@@ -9,5 +9,5 @@ def test():
         assert key == unit.symbol
         assert len(unit.symbol) > 0
         assert len(unit.name) > 0
-        assert unit.prefix == no_prefix
-        assert unit.factor != Unit._one
+        assert unit.prefix == PREFIX_1
+        assert unit.factor != Unit.FRACTION_1

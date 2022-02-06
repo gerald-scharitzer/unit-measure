@@ -1,20 +1,18 @@
 """Test Unit"""
 import pytest
 from fractions import Fraction
-from unitsofmeasure import decprefix, Dimension, no_prefix, no_unit, Prefix, scalar, Unit
-
-_one = Fraction(1,1)
+from unitsofmeasure import decprefix, Dimension, Prefix, PREFIX_1, SCALAR, Unit, UNIT_1
 
 @pytest.mark.parametrize(
     "symbol , name       , dimension        , prefix,     , factor",[
-    ("%"    , "percent"  , Dimension()      , no_prefix   , Fraction(1,100)), # scalar
-    ("kg"   , "kilogram" , Dimension(kg=1)  , decprefix.k , _one), # SI base units
-    ("m"    , "metre"    , Dimension(m=1)   , no_prefix   , _one),
-    ("s"    , "second"   , Dimension(s=1)   , no_prefix   , _one),
-    ("A"    , "ampere"   , Dimension(A=1)   , no_prefix   , _one),
-    ("K"    , "kelvin"   , Dimension(K=1)   , no_prefix   , _one),
-    ("cd"   , "candela"  , Dimension(cd=1)  , no_prefix   , _one),
-    ("mol"  , "mole"     , Dimension(mol=1) , no_prefix   , _one)
+    ("%"    , "percent"  , Dimension()      , PREFIX_1   , Fraction(1,100)), # scalar
+    ("kg"   , "kilogram" , Dimension(kg=1)  , decprefix.k , Unit.FRACTION_1), # SI base units
+    ("m"    , "metre"    , Dimension(m=1)   , PREFIX_1   , Unit.FRACTION_1),
+    ("s"    , "second"   , Dimension(s=1)   , PREFIX_1   , Unit.FRACTION_1),
+    ("A"    , "ampere"   , Dimension(A=1)   , PREFIX_1   , Unit.FRACTION_1),
+    ("K"    , "kelvin"   , Dimension(K=1)   , PREFIX_1   , Unit.FRACTION_1),
+    ("cd"   , "candela"  , Dimension(cd=1)  , PREFIX_1   , Unit.FRACTION_1),
+    ("mol"  , "mole"     , Dimension(mol=1) , PREFIX_1   , Unit.FRACTION_1)
 ])
 def test_unit(symbol: str, name: str, dimension: Dimension, prefix: Prefix, factor: Fraction) -> None:
     unit = Unit(symbol, name, dimension, prefix, factor)
@@ -25,8 +23,8 @@ def test_unit(symbol: str, name: str, dimension: Dimension, prefix: Prefix, fact
     assert unit.factor    == factor
 
 def test_no_unit() -> None:
-    assert len(no_unit.symbol) == 0
-    assert len(no_unit.name)   == 0
-    assert no_unit.dimension   == scalar
-    assert no_unit.prefix      == no_prefix
-    assert no_unit.factor      == _one
+    assert len(UNIT_1.symbol) == 0
+    assert len(UNIT_1.name)   == 0
+    assert UNIT_1.dimension   == SCALAR
+    assert UNIT_1.prefix      == PREFIX_1
+    assert UNIT_1.factor      == Unit.FRACTION_1

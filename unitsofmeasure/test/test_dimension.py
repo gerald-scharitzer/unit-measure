@@ -1,6 +1,6 @@
 """Test Dimension"""
 import pytest
-from unitsofmeasure import Dimension, scalar
+from unitsofmeasure import Dimension, SCALAR
 
 @pytest.mark.parametrize(
     "dimension        , kg , m , s , A , K , cd , mol",[
@@ -23,10 +23,10 @@ def test_dimension(dimension: Dimension, kg: int, m: int, s: int, A: int, K: int
     assert dimension.mol == mol
 
 def test_scalar() -> None:
-    assert scalar.kg  == 0
-    assert scalar.m   == 0
-    assert scalar.s   == 0
-    assert scalar.A   == 0
-    assert scalar.K   == 0
-    assert scalar.cd  == 0
-    assert scalar.mol == 0
+    assert SCALAR.kg  == 0
+    assert SCALAR.m   == 0
+    assert SCALAR.s   == 0
+    assert SCALAR.A   == 0
+    assert SCALAR.K   == 0
+    assert SCALAR.cd  == 0
+    assert SCALAR.mol == 0

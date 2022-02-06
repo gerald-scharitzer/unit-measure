@@ -1,6 +1,6 @@
 """Test Prefix"""
 import pytest
-from unitsofmeasure import no_prefix, Prefix
+from unitsofmeasure import Prefix, PREFIX_1
 
 @pytest.mark.parametrize(
     "base , exponent , symbol , name"  ,[
@@ -33,8 +33,8 @@ def test_prefix(base: int, exponent: int, symbol: str, name: str) -> None:
     assert prefix.symbol   == symbol
     assert prefix.name     == name
 
-def test_no_prefix() -> None:
-    assert no_prefix.base        == 10
-    assert no_prefix.exponent    == 0
-    assert len(no_prefix.symbol) == 0
-    assert len(no_prefix.name)   == 0
+def test_prefix_1() -> None:
+    assert PREFIX_1.base        == 10
+    assert PREFIX_1.exponent    == 0
+    assert len(PREFIX_1.symbol) == 0
+    assert len(PREFIX_1.name)   == 0
