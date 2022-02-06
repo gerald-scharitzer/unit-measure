@@ -196,7 +196,7 @@ class UnitMap(Generic[T]):
         self.units = {} # dictionary maps id(object) to (ref(object), unit)
         self.value = value
     
-    def map_to_unit(self, o: object, unit: T) -> None:
+    def set(self, o: object, unit: T) -> None:
         """Map the object ID to the tuple (ref(object), unit) to keep a weak reference to the object.
 
         Otherwise the object could be garbage-collected and its ID re-used for a different object without being detected.
@@ -205,7 +205,7 @@ class UnitMap(Generic[T]):
         # TODO Guard against types re-using instances, instead of relying on ref
         self.units[id(o)] = (ref(o), unit)
 
-    def get_unit_of(self, o: object) -> T:
+    def get(self, o: object) -> T:
         """Return the unit mapped to the object.
         
         Throws GarbageError when to object was garbage-collected already.
@@ -223,10 +223,14 @@ unit_map = UnitMap[Unit]()
 def map_to_unit(unit: object, map: UnitMap = unit_map): # -> ((o: object) -> object) requires Python 3.11
     """Decorate functions or classes with units."""
     def wrap(o: object) -> object:
-        map.map_to_unit(o, unit)
+        map.set(o, unit)
         return o
     return wrap
 
-def get_unit_of(o: object, map: UnitMap = unit_map) -> object:
+def set_unit(o: object, unit: object, map: UnitMap = unit_map) -> None:
+    """Set object to unit in map."""
+    map.set(o, unit)
+
+def get_unit(o: object, map: UnitMap = unit_map) -> object:
     """Get unit of object from map."""
-    return map.get_unit_of(o)
+    return map.get(o)
