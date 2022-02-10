@@ -10,7 +10,8 @@ from weakref import ref
 class Dimension:
     """Dimension of quantity: a product of integer powers of SI base units
     
-    For each SI base unit symbol (kg, m, s, A, K, cd, mol) an attribute with the same name stores the exponent.
+    For each SI base unit symbol (kg, m, s, A, K, cd, mol)
+    an attribute with the same name stores the exponent.
     """
 
     def __init__(
@@ -25,7 +26,10 @@ class Dimension:
         ) -> None:
         """The default dimension is the scalar, where all exponents are 0.
 
-        Thus the product is 1, the identity element of dimensions."""
+        Thus the product is 1, the identity element of dimensions.
+        The order of parameters is close to the order of base units
+        in the definition of the SI derived units.
+        """
         self.kg  = kg
         self.m   = m
         self.s   = s
