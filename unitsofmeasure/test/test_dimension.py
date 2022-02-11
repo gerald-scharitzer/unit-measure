@@ -39,6 +39,20 @@ def test_eq(kg: int, m: int, s: int, A: int, K: int, cd: int, mol: int) -> None:
     assert id(d1) != id(d2)
     assert d1 == d2
 
+@pytest.mark.parametrize(
+    "dimension        , representation",[
+    (Dimension()      , "Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=0)"), # scalar
+    (Dimension(kg=1)  , "Dimension(kg=1, m=0, s=0, A=0, K=0, cd=0, mol=0)"), # SI base units
+    (Dimension(m=1)   , "Dimension(kg=0, m=1, s=0, A=0, K=0, cd=0, mol=0)"),
+    (Dimension(s=1)   , "Dimension(kg=0, m=0, s=1, A=0, K=0, cd=0, mol=0)"),
+    (Dimension(A=1)   , "Dimension(kg=0, m=0, s=0, A=1, K=0, cd=0, mol=0)"),
+    (Dimension(K=1)   , "Dimension(kg=0, m=0, s=0, A=0, K=1, cd=0, mol=0)"),
+    (Dimension(cd=1)  , "Dimension(kg=0, m=0, s=0, A=0, K=0, cd=1, mol=0)"),
+    (Dimension(mol=1) , "Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=1)")
+])
+def test_repr(dimension: Dimension, representation: str) -> None:
+    assert repr(dimension) == representation
+
 def test_scalar() -> None:
     assert SCALAR.kg  == 0
     assert SCALAR.m   == 0
