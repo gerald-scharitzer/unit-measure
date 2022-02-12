@@ -233,6 +233,7 @@ unit_map = UnitMap[Unit]()
 def map_to_unit(unit: object, map: UnitMap = unit_map): # -> ((o: object) -> object) requires Python 3.11
     """Decorate functions or classes with units."""
     def wrap(o: object) -> object:
+        """Map object (function or class) to unit and return object."""
         map.set(o, unit)
         return o
     return wrap
