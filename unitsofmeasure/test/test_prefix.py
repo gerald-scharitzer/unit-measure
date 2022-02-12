@@ -26,7 +26,7 @@ from unitsofmeasure import Prefix, PREFIX_1
     (  10 ,      -21 , "z"    , "zepto" , 'Prefix(base=10, exponent=-21, symbol="z", name="zepto")'),
     (  10 ,      -24 , "y"    , "yocto" , 'Prefix(base=10, exponent=-24, symbol="y", name="yocto")')
 ])
-def test_prefix(base: int, exponent: int, symbol: str, name: str, representation: str) -> None:
+def test(base: int, exponent: int, symbol: str, name: str, representation: str) -> None:
     prefix = Prefix(base, exponent, symbol, name)
     assert prefix.base     == base
     assert prefix.exponent == exponent

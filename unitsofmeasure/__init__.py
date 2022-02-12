@@ -187,7 +187,7 @@ class GarbageError(Exception):
 T = TypeVar("T")
 
 class UnitMap(Generic[T]):
-    """Map objects to their units.
+    """Map objects to units.
 
     The objects are not used as keys directly, because not all objects are hashable.
     Instead the integer value of id(object) is used as key,
@@ -201,21 +201,22 @@ class UnitMap(Generic[T]):
     """
 
     def __init__(self, value:T = Unit) -> None:
-        """Create an empty map."""
+        """Create an empty map with the default value type Unit."""
         self.units = {} # dictionary maps id(object) to (ref(object), unit)
         self.value = value
     
     def set(self, o: object, unit: T) -> None:
         """Map the object ID to the tuple (ref(object), unit) to keep a weak reference to the object.
 
-        Otherwise the object could be garbage-collected and its ID re-used for a different object without being detected.
+        Otherwise the object could be garbage-collected and its ID re-used
+        for a different object without being detected.
         """
         # TODO Remove the object ID from the dictionary on finalize.
         # TODO Guard against types re-using instances, instead of relying on ref
         self.units[id(o)] = (ref(o), unit)
 
     def get(self, o: object) -> T:
-        """Return the unit mapped to the object.
+        """Return the unit of the object.
         
         Throws GarbageError when to object was garbage-collected already.
         """

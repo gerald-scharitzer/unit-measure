@@ -13,7 +13,7 @@ from unitsofmeasure import Dimension, SCALAR
     (Dimension(cd=1)  ,  0 , 0 , 0 , 0 , 0 ,  1 ,   0 , "Dimension(kg=0, m=0, s=0, A=0, K=0, cd=1, mol=0)"),
     (Dimension(mol=1) ,  0 , 0 , 0 , 0 , 0 ,  0 ,   1 , "Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=1)")
 ])
-def test_dimension(dimension: Dimension, kg: int, m: int, s: int, A: int, K: int, cd: int, mol: int, representation: str) -> None:
+def test(dimension: Dimension, kg: int, m: int, s: int, A: int, K: int, cd: int, mol: int, representation: str) -> None:
     assert dimension.kg  == kg
     assert dimension.m   == m
     assert dimension.s   == s

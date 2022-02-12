@@ -22,7 +22,7 @@ from unitsofmeasure import decprefix, Dimension, Prefix, PREFIX_1, SCALAR, Unit,
     ("mol"  , "mole"     , Dimension(mol=1) , PREFIX_1    , Unit.FRACTION_1 ,
         'Unit(symbol="mol", name="mole", dimension=Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=1), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))')
 ])
-def test_unit(symbol: str, name: str, dimension: Dimension, prefix: Prefix, factor: Fraction, representation: str) -> None:
+def test(symbol: str, name: str, dimension: Dimension, prefix: Prefix, factor: Fraction, representation: str) -> None:
     unit = Unit(symbol, name, dimension, prefix, factor)
     assert unit.symbol    == symbol
     assert unit.name      == name
