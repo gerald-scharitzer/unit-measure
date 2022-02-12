@@ -76,7 +76,8 @@ class Prefix:
     - exponent: number of orders
     - symbol: short string used in formulas, tables, and charts
     - name: long string used in flow text
-    Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24] map to SI decimal prefixes.
+    Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24]
+    or integers in the interval [-2,2] map to SI decimal prefixes.
     Prefixes with base 2 and exponents that are integer multiples of 10 up to 80 map to SI binary prefixes.
     """
 
@@ -94,7 +95,11 @@ class Prefix:
         self.name = name
     
     def __eq__(self, other) -> bool:
-        """Exponent zero with different bases is not equal, because the same non-zero exponent results in different values."""
+        """Two prefixes are equal if both the base and exponent are equal.
+        
+        Exponent zero with different bases is not equal,
+        because the same non-zero exponent results in different values.
+        """
         if type(self) != type(other):
             return NotImplemented
         return (
