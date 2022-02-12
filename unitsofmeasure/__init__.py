@@ -124,14 +124,14 @@ class Prefix:
 PREFIX_1 = Prefix()
 
 class Unit:
-    """Dimension with prefix and factor
+    """Product of dimension, prefix, and factor
 
     Units have the following attributes.
     - symbol: short string used in formulas, tables, and charts
     - name: long string used in flow text
     - dimension: product of integer powers of base units
     - prefix: order of magnitude (logarithmic scale)
-    - factor: rational scale (fraction of integers)
+    - factor: ratio as fraction of integers (linear scale)
     """
 
     FRACTION_1 = Fraction(1,1)
@@ -141,7 +141,7 @@ class Unit:
             symbol: str = "",
             name: str = "",
             dimension: Dimension = SCALAR,
-            prefix: Prefix = PREFIX_1, # none = one
+            prefix: Prefix = PREFIX_1,
             factor: Fraction = FRACTION_1
         ) -> None:
         """The default unit is no unit, or the value of 1."""
