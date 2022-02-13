@@ -10,7 +10,7 @@ Ei = Prefix(2, 60, "Ei", "exbi")
 Zi = Prefix(2, 70, "Zi", "zebi")
 Yi = Prefix(2, 80, "Yi", "yobi")
 
-si_binary_prefixes: dict[str, Prefix] = {
+prefixes: dict[str, Prefix] = {
     "Ki": Ki,
     "Mi": Mi,
     "Gi": Gi,

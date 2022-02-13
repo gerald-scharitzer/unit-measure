@@ -22,7 +22,7 @@ a  = Prefix(10, -18, "a",  "atto")
 z  = Prefix(10, -21, "z",  "zepto")
 y  = Prefix(10, -24, "y",  "yocto")
 
-si_decimal_prefixes: dict[str, Prefix] = {
+prefixes: dict[str, Prefix] = {
     "da": da,
     "h" : h,
     "k" : k,

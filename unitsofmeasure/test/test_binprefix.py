@@ -1,7 +1,7 @@
 from unitsofmeasure import binprefix
 
 def test():
-    items = binprefix.si_binary_prefixes.items()
+    items = binprefix.prefixes.items()
     assert len(items) == 8 # there are 8 binary prefixes
 
     for (key, prefix) in items:
