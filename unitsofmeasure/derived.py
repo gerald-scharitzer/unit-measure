@@ -6,7 +6,7 @@ You can map this to other identifiers by assignment (e.g. `ohm = Ω`).
 The symbol of unit degree Celsius is °C, but that is not a valid Python identifier.
 Therefore it is mapped to degC.
 """
-from unitsofmeasure import Dimension, Unit
+from unitsofmeasure import base, Dimension, Unit
 
 rad  = Unit("rad", "radian") # plane angle
 sr   = Unit("sr", "steradian") # solid angle
@@ -23,8 +23,8 @@ S    = Unit("S", "siemens", Dimension(kg=-1, m=-2, s=3, A=2)) # electric conduct
 Wb   = Unit("Wb", "weber", Dimension(kg=1, m=2, s=-2, A=-1)) # magnetic flux
 T    = Unit("T", "tesla", Dimension(kg=1, s=-2, A=-1)) # magnetic flux density
 H    = Unit("H", "henry", Dimension(kg=1, m=2, s=-2, A=-2)) # inductance
-degC = Unit("°C", "degree Celsius", Dimension(K=1)) # Celsius temperature
-lm   = Unit("lm", "lumen", Dimension(cd=1)) # luminous flux
+degC = Unit("°C", "degree Celsius", base.K.dimension) # Celsius temperature
+lm   = Unit("lm", "lumen", base.cd.dimension) # luminous flux
 lx   = Unit("lx", "lux", Dimension(cd=1, m=-2)) # illuminance
 Bq   = Unit("Bq", "becquerel", Dimension(s=-1)) # activity referred to a radionuclide
 Gy   = Unit("Gy", "gray", Dimension(m=2, s=-2)) # absorbed dose
