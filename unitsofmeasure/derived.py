@@ -32,7 +32,7 @@ Sv   = Unit("Sv", "sievert", Dimension(m=2, s=-2)) # dose equivalent
 kat  = Unit("kat", "katal", Dimension(mol=1, s=-1)) # catalytic activity
 
 # map symbols to units
-si_derived_units: dict[str, Unit] = {
+units: dict[str, Unit] = {
     "rad":  rad,
     "sr":   sr,
     "Hz":   Hz,

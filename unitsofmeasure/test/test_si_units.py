@@ -2,7 +2,7 @@
 from unitsofmeasure import accepted, base, derived
 
 def test() -> None:
-    units = base.si_base_units | derived.si_derived_units | accepted.si_accepted_units
+    units = base.units | derived.units | accepted.units
     for (key, unit) in units.items():
         print(key, unit, unit.name)
         if (key == "degC"):

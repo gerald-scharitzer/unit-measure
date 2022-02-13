@@ -1,7 +1,7 @@
 from unitsofmeasure import base, decprefix, PREFIX_1, SCALAR, Unit
 
 def test():
-    items = base.si_base_units.items()
+    items = base.units.items()
     assert len(items) == 7 # there are 7 base units
 
     for (key, unit) in items:

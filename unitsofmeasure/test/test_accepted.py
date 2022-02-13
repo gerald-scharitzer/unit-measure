@@ -1,7 +1,7 @@
 from unitsofmeasure import accepted, PREFIX_1, Unit
 
 def test():
-    items = accepted.si_accepted_units.items()
+    items = accepted.units.items()
     assert len(items) == 7 # there are 7 implemented and accepted units
 
     for (key, unit) in items:

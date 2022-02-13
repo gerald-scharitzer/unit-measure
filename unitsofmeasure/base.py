@@ -10,7 +10,7 @@ cd  = Unit("cd", "candela", Dimension(cd=1)) # luminous intensity
 mol = Unit("mol", "mole", Dimension(mol=1)) # amount of substance
 
 # map symbols to units
-si_base_units: dict[str, Unit] = {
+units: dict[str, Unit] = {
     "kg":  kg,
     "m":   m,
     "s":   s,
