@@ -8,8 +8,11 @@ as defined in [Unit of Measurement](https://en.wikipedia.org/wiki/Unit_of_measur
 # Objective
 
 1. Relate units of measure to the [International System of Units (SI)](https://www.bipm.org/en/measurement-units/) to define their dimension and magnitude.
-2. Relate objects to units. Currently, some types of objects cannot be mapped to units, because that would create error-prone states.
+2. Relate objects to units without changing the objects.
 3. Get the unit that an object is mapped to.
+4. Give units human-readable symbols and names.
+5. Being mapped to a unit shall not keep an object from being garbage-collected.
+6. Provide SI units and prefixes.
 
 # Motivation
 
@@ -17,6 +20,10 @@ First, I used the library [`forallpeople`](https://github.com/connorferster/fora
 but that ran into [issues with large scales](https://github.com/connorferster/forallpeople/issues/27) like megatonnes and gigatonnes.
 
 Based on my [objectives](#objective) I decided to create a new library that does exactly that and does not deal with quantities (yet).
+
+# Limits
+
+Some types of objects like `int` and `float` cannot be mapped to units, because that would create error-prone states.
 
 # Get Started
 
