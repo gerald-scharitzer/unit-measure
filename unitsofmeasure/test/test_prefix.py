@@ -49,6 +49,17 @@ def test_eq() -> None:
     p2 = Prefix(10, 0)
     assert p1 != p2 # the value of both is 1, but the base is different
 
+@pytest.mark.parametrize(
+    "base1 , exponent1 , base2 , exponent2",[
+    (    2 ,         1 ,     2 ,         2),
+    (   10 ,         1 ,    10 ,         2),
+    (   10 ,         3 ,     2 ,        10)
+])
+def test_lt(base1: int, exponent1: int, base2: int, exponent2: int) -> None:
+    p1 = Prefix(base1, exponent1)
+    p2 = Prefix(base2, exponent2)
+    assert p1 < p2
+
 def test_prefix_1() -> None:
     assert PREFIX_1.base        == 10
     assert PREFIX_1.exponent    == 0

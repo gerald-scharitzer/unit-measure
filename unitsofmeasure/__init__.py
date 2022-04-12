@@ -3,6 +3,7 @@
 https://www.bipm.org/en/publications/si-brochure
 """
 from fractions import Fraction
+from functools import total_ordering
 from typing import Generic, TypeVar
 from weakref import ref
 
@@ -67,6 +68,7 @@ class Dimension:
 # The identity element of dimensions
 SCALAR = Dimension()
 
+@total_ordering
 class Prefix:
     """Order of magnitude with an integer base and exponent
     
@@ -105,6 +107,19 @@ class Prefix:
         return (
             self.base     == other.base and
             self.exponent == other.exponent
+        )
+    
+    def __lt__(self,other) -> bool:
+        """One prefix is less than the other, if its exponentiation base raised to the power of exponent is less than the other's.
+
+        This computation is avoided if the bases are equal by reducing it to a comparison of the exponents.
+        """
+        if type(self) != type(other):
+            return NotImplemented
+        return (
+            self.base == other.base and
+            self.exponent < other.exponent or
+            self.base ** self.exponent < other.base ** other.exponent
         )
 
     def __str__(self) -> str:
