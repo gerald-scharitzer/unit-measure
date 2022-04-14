@@ -44,21 +44,27 @@ def test(base: int, exponent: int, symbol: str, name: str, representation: str) 
     # test representation
     assert repr(prefix) == representation
 
-def test_eq() -> None:
-    p1 = Prefix(2, 0)
-    p2 = Prefix(10, 0)
-    assert p1 != p2 # the value of both is 1, but the base is different
-
 @pytest.mark.parametrize(
-    "base1 , exponent1 , base2 , exponent2",[
-    (    2 ,         1 ,     2 ,         2),
-    (   10 ,         1 ,    10 ,         2),
-    (   10 ,         3 ,     2 ,        10)
+    "base1 , exponent1 , base2 , exponent2 , equal_to",[
+    (    2 ,         1 ,     2 ,         1 , True),
+    (   10 ,         1 ,    10 ,         1 , True),
+    (    2 ,         0 ,    10 ,         0 , True)
 ])
-def test_lt(base1: int, exponent1: int, base2: int, exponent2: int) -> None:
+def test_eq(base1: int, exponent1: int, base2: int, exponent2: int, equal_to: bool) -> None:
     p1 = Prefix(base1, exponent1)
     p2 = Prefix(base2, exponent2)
-    assert p1 < p2
+    assert (p1 == p2) == equal_to
+
+@pytest.mark.parametrize(
+    "base1 , exponent1 , base2 , exponent2 , less_than",[
+    (    2 ,         1 ,     2 ,         2 , True),
+    (   10 ,         1 ,    10 ,         2 , True),
+    (   10 ,         3 ,     2 ,        10 , True)
+])
+def test_lt(base1: int, exponent1: int, base2: int, exponent2: int, less_than: bool) -> None:
+    p1 = Prefix(base1, exponent1)
+    p2 = Prefix(base2, exponent2)
+    assert (p1 < p2) == less_than
 
 def test_prefix_1() -> None:
     assert PREFIX_1.base        == 10

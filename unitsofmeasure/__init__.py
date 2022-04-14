@@ -97,16 +97,16 @@ class Prefix:
         self.name = name
     
     def __eq__(self, other) -> bool:
-        """Two prefixes are equal if both the base and exponent are equal.
-        
-        Exponent zero with different bases is not equal,
-        because the same non-zero exponent results in different values.
+        """One prefix is equal the other, if its exponentiation base raised to the power of exponent is equal to the other's.
+
+        This computation is avoided if the bases are equal by reducing it to a comparison of the exponents.
         """
         if type(self) != type(other):
             return NotImplemented
-        return (
-            self.base     == other.base and
-            self.exponent == other.exponent
+        return ( # TODO optimize me
+            self.base == other.base and
+            self.exponent == other.exponent or
+            self.base ** self.exponent == other.base ** other.exponent
         )
     
     def __lt__(self,other) -> bool:
@@ -116,7 +116,7 @@ class Prefix:
         """
         if type(self) != type(other):
             return NotImplemented
-        return (
+        return ( # TODO optimize me
             self.base == other.base and
             self.exponent < other.exponent or
             self.base ** self.exponent < other.base ** other.exponent
