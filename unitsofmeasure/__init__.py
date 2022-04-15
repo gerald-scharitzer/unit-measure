@@ -70,7 +70,7 @@ SCALAR = Dimension()
 
 @total_ordering
 class Prefix:
-    """Order of magnitude with an integer base and exponent
+    """Order of magnitude with a positive integer base and integer exponent
     
     The base is the magnitude and the exponent is the number of orders.
     Prefixes have the following attributes.
@@ -78,6 +78,7 @@ class Prefix:
     - exponent: number of orders
     - symbol: short string used in formulas, tables, and charts
     - name: long string used in flow text
+    Non-positive bases raise a ValueError.
     Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24]
     or integers in the interval [-2,2] map to SI decimal prefixes.
     Prefixes with base 2 and exponents that are integer multiples of 10 up to 80 map to SI binary prefixes.
@@ -91,6 +92,8 @@ class Prefix:
             name: str = ""
         ) -> None:
         """The default is 10 raised to 0, resulting in the value 1, the identity element of prefixes"""
+        if base <= 0:
+            raise ValueError("The base must be a positive integer.")
         self.base = base
         self.exponent = exponent
         self.symbol = symbol

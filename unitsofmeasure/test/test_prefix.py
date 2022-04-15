@@ -45,6 +45,15 @@ def test(base: int, exponent: int, symbol: str, name: str, representation: str) 
     assert repr(prefix) == representation
 
 @pytest.mark.parametrize(
+    "base , exponent",[
+    (   0 ,        1),
+    (  -1 ,        1)
+])
+def test_exceptions(base: int, exponent: int) -> None:
+    with pytest.raises(ValueError, match="^The base must be a positive integer.$"):
+        Prefix(base, exponent)
+
+@pytest.mark.parametrize(
     "base1 , exponent1 , base2 , exponent2 , equal_to",[
     (    2 ,         1 ,     2 ,         1 , True),
     (   10 ,         1 ,    10 ,         1 , True),
