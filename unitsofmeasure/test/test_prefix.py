@@ -46,13 +46,14 @@ def test(base: int, exponent: int, symbol: str, name: str, representation: str) 
 
 @pytest.mark.parametrize(
     "base , exception",[
-    ( 0.5 , TypeError ),
+    ( 1   , ValueError),
     ( 0   , ValueError),
     (-1   , ValueError),
+    ( 0.5 , TypeError ),
     ("10" , TypeError )
 ])
 def test_base(base: int, exception: Exception) -> None:
-    with pytest.raises(exception, match="^The base must be a positive integer.$"):
+    with pytest.raises(exception, match="^The base must be an integer greater than 1.$"):
         Prefix(base, 1)
 
 @pytest.mark.parametrize(

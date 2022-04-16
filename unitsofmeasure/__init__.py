@@ -70,7 +70,7 @@ SCALAR = Dimension()
 
 @total_ordering
 class Prefix:
-    """Order of magnitude with a positive integer base and integer exponent
+    """Order of magnitude with an integer base greater than 1 and an integer exponent
     
     The base is the magnitude and the exponent is the number of orders.
     Prefixes have the following attributes.
@@ -78,9 +78,6 @@ class Prefix:
     - exponent: number of orders
     - symbol: short string used in formulas, tables, and charts
     - name: long string used in flow text
-    Non-integer base raises a TypeError.
-    Non-positive base raises a ValueError.
-    Non-integer exponent raises a TypeError.
     Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24]
     or integers in the interval [-2,2] map to SI decimal prefixes.
     Prefixes with base 2 and exponents that are integer multiples of 10 up to 80 map to SI binary prefixes.
@@ -93,12 +90,18 @@ class Prefix:
             symbol: str = "",
             name: str = ""
         ) -> None:
-        """The default is 10 raised to 0, resulting in the value 1, the identity element of prefixes"""
+        """The default is 10 raised to 0, resulting in the value 1, the identity element of prefixes
 
-        BASE_ERROR: str = "The base must be a positive integer."
+        Exceptions:
+        Non-integer base raises a TypeError.
+        Base not greater than 1 raises a ValueError.
+        Non-integer exponent raises a TypeError.
+        """
+
+        BASE_ERROR: str = "The base must be an integer greater than 1."
         if not isinstance(base, int):
             raise TypeError(BASE_ERROR)
-        if base <= 0:
+        if base <= 1:
             raise ValueError(BASE_ERROR)
 
         if not isinstance(exponent, int):
