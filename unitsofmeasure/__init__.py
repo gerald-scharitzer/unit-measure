@@ -78,7 +78,9 @@ class Prefix:
     - exponent: number of orders
     - symbol: short string used in formulas, tables, and charts
     - name: long string used in flow text
-    Non-positive bases raise a ValueError.
+    Non-integer base raises a TypeError.
+    Non-positive base raises a ValueError.
+    Non-integer exponent raises a TypeError.
     Prefixes with base 10 and exponents that are integer multiples of 3 in the interval [-24,24]
     or integers in the interval [-2,2] map to SI decimal prefixes.
     Prefixes with base 2 and exponents that are integer multiples of 10 up to 80 map to SI binary prefixes.
@@ -92,8 +94,16 @@ class Prefix:
             name: str = ""
         ) -> None:
         """The default is 10 raised to 0, resulting in the value 1, the identity element of prefixes"""
+
+        BASE_ERROR: str = "The base must be a positive integer."
+        if not isinstance(base, int):
+            raise TypeError(BASE_ERROR)
         if base <= 0:
-            raise ValueError("The base must be a positive integer.")
+            raise ValueError(BASE_ERROR)
+
+        if not isinstance(exponent, int):
+            raise TypeError("The exponent must be an integer.")
+
         self.base = base
         self.exponent = exponent
         self.symbol = symbol
