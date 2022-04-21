@@ -30,6 +30,27 @@ def test(dimension: Dimension, kg: int, m: int, s: int, A: int, K: int, cd: int,
     # test representation
     assert repr(dimension) == representation
 
+@pytest.mark.parametrize(
+    "kg  , m   , s   , A   , K   , cd  , mol",[
+    (0.5 , 0   , 0   , 0   , 0   , 0   , 0  ),
+    (0   , 0.5 , 0   , 0   , 0   , 0   , 0  ),
+    (0   , 0   , 0.5 , 0   , 0   , 0   , 0  ),
+    (0   , 0   , 0   , 0.5 , 0   , 0   , 0  ),
+    (0   , 0   , 0   , 0   , 0.5 , 0   , 0  ),
+    (0   , 0   , 0   , 0   , 0   , 0.5 , 0  ),
+    (0   , 0   , 0   , 0   , 0   , 0   , 0.5),
+    ("1" , 0   , 0   , 0   , 0   , 0   , 0  ),
+    (0   , "1" , 0   , 0   , 0   , 0   , 0  ),
+    (0   , 0   , "1" , 0   , 0   , 0   , 0  ),
+    (0   , 0   , 0   , "1" , 0   , 0   , 0  ),
+    (0   , 0   , 0   , 0   , "1" , 0   , 0  ),
+    (0   , 0   , 0   , 0   , 0   , "1" , 0  ),
+    (0   , 0   , 0   , 0   , 0   , 0   , "1")
+])
+def test_exceptions(kg: int, m: int, s: int, A: int, K: int, cd: int, mol: int) -> None:
+    with pytest.raises(TypeError, match="^The exponent must be an integer.$"):
+        Dimension(kg, m, s, A, K, cd, mol)
+
 def test_scalar() -> None:
     assert SCALAR.kg  == 0
     assert SCALAR.m   == 0

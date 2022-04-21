@@ -30,7 +30,20 @@ class Dimension:
         Thus the product is 1, the identity element of dimensions.
         The order of parameters is close to the order of base units
         in the definition of the SI derived units.
+
+        Exceptions:
+        Non-integer exponents raise a TypeError.
         """
+
+        if (not isinstance(kg, int) or
+            not isinstance(m, int) or
+            not isinstance(s, int) or
+            not isinstance(A, int) or
+            not isinstance(K, int) or
+            not isinstance(cd, int) or
+            not isinstance(mol, int)):
+            raise TypeError("The exponent must be an integer.")
+
         self.kg  = kg
         self.m   = m
         self.s   = s
