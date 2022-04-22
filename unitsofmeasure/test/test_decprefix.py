@@ -12,3 +12,34 @@ def test():
         assert prefix.exponent <= 24
         assert len(prefix.symbol) > 0
         assert len(prefix.name) > 0
+
+def test_order():
+    prefixes = [
+        decprefix.y,
+        decprefix.z,
+        decprefix.a,
+        decprefix.f,
+        decprefix.p,
+        decprefix.n,
+        decprefix.µ,
+        decprefix.m,
+        decprefix.c,
+        decprefix.d,
+        decprefix.da,
+        decprefix.h,
+        decprefix.k,
+        decprefix.M,
+        decprefix.G,
+        decprefix.T,
+        decprefix.P,
+        decprefix.E,
+        decprefix.Z,
+        decprefix.Y
+    ]
+    
+    prev = None
+    for prefix in prefixes:
+        if prev is not None:
+            print(prev, "<", prefix)
+            assert prev < prefix
+        prev = prefix

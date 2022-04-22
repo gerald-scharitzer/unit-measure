@@ -12,3 +12,22 @@ def test():
         assert prefix.exponent <= 80
         assert len(prefix.symbol) > 0
         assert len(prefix.name) > 0
+
+def test_order():
+    prefixes = [
+        binprefix.Ki,
+        binprefix.Mi,
+        binprefix.Gi,
+        binprefix.Ti,
+        binprefix.Pi,
+        binprefix.Ei,
+        binprefix.Zi,
+        binprefix.Yi
+    ]
+    
+    prev = None
+    for prefix in prefixes:
+        if prev is not None:
+            print(prev, "<", prefix)
+            assert prev < prefix
+        prev = prefix
