@@ -30,4 +30,5 @@ def test_order():
         if prev is not None:
             print(prev, "<", prefix)
             assert prev < prefix
+            assert prefix > prev
         prev = prefix

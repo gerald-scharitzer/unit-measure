@@ -151,6 +151,19 @@ class Prefix:
             self.base ** self.exponent < other.base ** other.exponent
         )
 
+    def __gt__(self,other) -> bool:
+        """One prefix is greater than the other, if its exponentiation base raised to the power of exponent is greater than the other's.
+
+        This computation is avoided if the bases are equal by reducing it to a comparison of the exponents.
+        """
+        if type(self) != type(other):
+            return NotImplemented
+        return ( # TODO optimize me
+            self.base == other.base and
+            self.exponent > other.exponent or
+            self.base ** self.exponent > other.base ** other.exponent
+        )
+
     def __str__(self) -> str:
         """Returns the symbol"""
         return self.symbol

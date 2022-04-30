@@ -87,6 +87,17 @@ def test_lt(base1: int, exponent1: int, base2: int, exponent2: int, less_than: b
     p2 = Prefix(base2, exponent2)
     assert (p1 < p2) == less_than
 
+@pytest.mark.parametrize(
+    "base1 , exponent1 , base2 , exponent2 , greater_than",[
+    (    2 ,         2 ,     2 ,         1 , True),
+    (   10 ,         2 ,    10 ,         1 , True),
+    (    2 ,        10 ,    10 ,         3 , True)
+])
+def test_gt(base1: int, exponent1: int, base2: int, exponent2: int, greater_than: bool) -> None:
+    p1 = Prefix(base1, exponent1)
+    p2 = Prefix(base2, exponent2)
+    assert (p1 > p2) == greater_than
+
 def test_prefix_1() -> None:
     assert PREFIX_1.base        == 10
     assert PREFIX_1.exponent    == 0
