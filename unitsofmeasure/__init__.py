@@ -7,12 +7,14 @@ from functools import total_ordering
 from typing import Generic, TypeVar
 from weakref import ref
 
-# TODO map dimensions to quantity names
 class Dimension:
     """Dimension of quantity: a product of integer powers of SI base units
     
-    For each SI base unit symbol (kg, m, s, A, K, cd, mol)
-    an attribute with the same name stores the exponent.
+    Attributes:
+    - For each SI base unit symbol (kg, m, s, A, K, cd, mol)
+      an attribute with the same name stores the exponent.
+    - symbol: short string used in formulas, tables, and charts
+    - name: long string used in flow text
     """
 
     def __init__(
@@ -23,7 +25,9 @@ class Dimension:
             A:   int = 0,
             K:   int = 0,
             cd:  int = 0,
-            mol: int = 0
+            mol: int = 0,
+            symbol: str = "",
+            name: str = ""
         ) -> None:
         """The default dimension is the scalar, where all exponents are 0.
 
@@ -51,6 +55,8 @@ class Dimension:
         self.K   = K
         self.cd  = cd
         self.mol = mol
+        self.symbol = symbol
+        self.name = name
     
     def __eq__(self, other) -> bool:
         """Two dimensions are equal if all exponents are equal."""
@@ -65,6 +71,10 @@ class Dimension:
             self.cd  == other.cd and
             self.mol == other.mol
         )
+    
+    def __str__(self) -> str:
+        """Returns the symbol"""
+        return self.symbol
     
     def __repr__(self) -> str:
         """Returns the equivalent constructor"""
