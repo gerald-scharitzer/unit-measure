@@ -86,7 +86,9 @@ class Dimension:
             ", K="   + repr(self.K)   +
             ", cd="  + repr(self.cd)  +
             ", mol=" + repr(self.mol) +
-            ")")
+            ", symbol=\"" + self.symbol +
+            "\", name=\"" + self.name +
+            "\")")
 
 # The identity element of dimensions
 SCALAR = Dimension()

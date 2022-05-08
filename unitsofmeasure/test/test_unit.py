@@ -6,21 +6,21 @@ from unitsofmeasure import decprefix, Dimension, Prefix, PREFIX_1, SCALAR, Unit,
 @pytest.mark.parametrize(
     "symbol , name       , dimension        , prefix      , factor          , representation",[
     ("%"    , "percent"  , Dimension()      , PREFIX_1    , Fraction(1,100) , # scalar
-        'Unit(symbol="%", name="percent", dimension=Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=0), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 100))'),
+        'Unit(symbol="%", name="percent", dimension=Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=0, symbol="", name=""), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 100))'),
     ("kg"   , "kilogram" , Dimension(kg=1)  , decprefix.k , Unit.FRACTION_1 , # SI base units
-        'Unit(symbol="kg", name="kilogram", dimension=Dimension(kg=1, m=0, s=0, A=0, K=0, cd=0, mol=0), prefix=Prefix(base=10, exponent=3, symbol="k", name="kilo"), factor=Fraction(1, 1))'),
+        'Unit(symbol="kg", name="kilogram", dimension=Dimension(kg=1, m=0, s=0, A=0, K=0, cd=0, mol=0, symbol="", name=""), prefix=Prefix(base=10, exponent=3, symbol="k", name="kilo"), factor=Fraction(1, 1))'),
     ("m"    , "metre"    , Dimension(m=1)   , PREFIX_1    , Unit.FRACTION_1 ,
-        'Unit(symbol="m", name="metre", dimension=Dimension(kg=0, m=1, s=0, A=0, K=0, cd=0, mol=0), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
+        'Unit(symbol="m", name="metre", dimension=Dimension(kg=0, m=1, s=0, A=0, K=0, cd=0, mol=0, symbol="", name=""), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
     ("s"    , "second"   , Dimension(s=1)   , PREFIX_1    , Unit.FRACTION_1 ,
-        'Unit(symbol="s", name="second", dimension=Dimension(kg=0, m=0, s=1, A=0, K=0, cd=0, mol=0), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
+        'Unit(symbol="s", name="second", dimension=Dimension(kg=0, m=0, s=1, A=0, K=0, cd=0, mol=0, symbol="", name=""), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
     ("A"    , "ampere"   , Dimension(A=1)   , PREFIX_1    , Unit.FRACTION_1 ,
-        'Unit(symbol="A", name="ampere", dimension=Dimension(kg=0, m=0, s=0, A=1, K=0, cd=0, mol=0), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
+        'Unit(symbol="A", name="ampere", dimension=Dimension(kg=0, m=0, s=0, A=1, K=0, cd=0, mol=0, symbol="", name=""), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
     ("K"    , "kelvin"   , Dimension(K=1)   , PREFIX_1    , Unit.FRACTION_1 ,
-        'Unit(symbol="K", name="kelvin", dimension=Dimension(kg=0, m=0, s=0, A=0, K=1, cd=0, mol=0), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
+        'Unit(symbol="K", name="kelvin", dimension=Dimension(kg=0, m=0, s=0, A=0, K=1, cd=0, mol=0, symbol="", name=""), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
     ("cd"   , "candela"  , Dimension(cd=1)  , PREFIX_1    , Unit.FRACTION_1 ,
-        'Unit(symbol="cd", name="candela", dimension=Dimension(kg=0, m=0, s=0, A=0, K=0, cd=1, mol=0), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
+        'Unit(symbol="cd", name="candela", dimension=Dimension(kg=0, m=0, s=0, A=0, K=0, cd=1, mol=0, symbol="", name=""), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))'),
     ("mol"  , "mole"     , Dimension(mol=1) , PREFIX_1    , Unit.FRACTION_1 ,
-        'Unit(symbol="mol", name="mole", dimension=Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=1), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))')
+        'Unit(symbol="mol", name="mole", dimension=Dimension(kg=0, m=0, s=0, A=0, K=0, cd=0, mol=1, symbol="", name=""), prefix=Prefix(base=10, exponent=0, symbol="", name=""), factor=Fraction(1, 1))')
 ])
 def test(symbol: str, name: str, dimension: Dimension, prefix: Prefix, factor: Fraction, representation: str) -> None:
     unit = Unit(symbol, name, dimension, prefix, factor)
