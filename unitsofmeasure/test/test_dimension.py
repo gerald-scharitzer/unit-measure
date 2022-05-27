@@ -72,3 +72,5 @@ def test_scalar() -> None:
     assert SCALAR.K   == 0
     assert SCALAR.cd  == 0
     assert SCALAR.mol == 0
+    assert len(SCALAR.symbol) == 0
+    assert len(SCALAR.name) == 0

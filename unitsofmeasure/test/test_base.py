@@ -5,11 +5,13 @@ def test():
     assert len(items) == 7 # there are 7 base units
 
     for (key, unit) in items:
-        print(key, unit, unit.name)
+        print(key, unit, unit.name, unit.dimension.symbol, unit.dimension.name)
         assert key == unit.symbol
         assert len(unit.symbol) > 0
         assert len(unit.name) > 0
         assert unit.dimension != SCALAR
+        assert len(unit.dimension.symbol) > 0
+        assert len(unit.dimension.name) > 0
         assert unit.factor == Unit.FRACTION_1
 
         if unit == base.kg:
