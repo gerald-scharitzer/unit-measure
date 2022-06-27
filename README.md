@@ -56,3 +56,4 @@ The latest release 1.1 includes
 - totally ordered prefixes
 - type and value checks in constructors
 - dimension symbols and names
+- `pyproject.toml` and `hatchling` instead of `setuptools`
