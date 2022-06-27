@@ -48,3 +48,11 @@ Download and install the library with `python -m pip install units-of-measure`.
 4. Build with `python -m build`
 5. Check with `python -m twine check dist/*`
 6. Publish with `python -m twine upload dist/*`
+
+# Release Notes
+
+The latest release 1.1 includes
+
+- totally ordered prefixes
+- type and value checks in constructors
+- dimension symbols and names
