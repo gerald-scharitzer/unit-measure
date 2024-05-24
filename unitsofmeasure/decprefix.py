@@ -11,6 +11,8 @@ P  = Prefix(10,  15, "P",  "peta")
 E  = Prefix(10,  18, "E",  "exa")
 Z  = Prefix(10,  21, "Z",  "zetta")
 Y  = Prefix(10,  24, "Y",  "yotta")
+R  = Prefix(10,  27, "R",  "ronna")
+Q  = Prefix(10,  30, "Q",  "quetta")
 d  = Prefix(10,  -1, "d",  "deci")
 c  = Prefix(10,  -2, "c",  "centi")
 m  = Prefix(10,  -3, "m",  "milli")
@@ -21,6 +23,8 @@ f  = Prefix(10, -15, "f",  "femto")
 a  = Prefix(10, -18, "a",  "atto")
 z  = Prefix(10, -21, "z",  "zepto")
 y  = Prefix(10, -24, "y",  "yocto")
+r  = Prefix(10, -27, "r",  "ronto")
+q  = Prefix(10, -30, "q",  "quecto")
 
 prefixes: dict[str, Prefix] = {
     "da": da,
@@ -33,6 +37,8 @@ prefixes: dict[str, Prefix] = {
     "E" : E,
     "Z" : Z,
     "Y" : Y,
+    "R" : R,
+    "Q" : Q,
     "d" : d,
     "c" : c,
     "m" : m,
@@ -42,5 +48,7 @@ prefixes: dict[str, Prefix] = {
     "f" : f,
     "a" : a,
     "z" : z,
-    "y" : y
+    "y" : y,
+    "r" : r,
+    "q" : q
 }

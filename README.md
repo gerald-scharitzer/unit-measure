@@ -43,15 +43,20 @@ Download and install the library with `python -m pip install units-of-measure`.
 # Develop
 
 1. Clone with `git clone https://github.com/gerald-scharitzer/units-of-measure.git`
-2. Test with `pytest`
-3. Document with `pydoc -w unitsofmeasure`
-4. Build with `python -m build`
-5. Check with `python -m twine check dist/*`
-6. Publish with `python -m twine upload dist/*`
+2. Set up with `python -m pip install -r requirements.txt`
+3. Test with `pytest`
+4. Document with `pydoc -w unitsofmeasure`
+5. Build with `python -m build`
+6. Check with `python -m twine check dist/*`
+7. Publish with `python -m twine upload dist/*`
 
 # Release Notes
 
-The latest release 1.1 includes
+## Release 1.2
+
+- [new decimal prefixes](https://www.bipm.org/en/cgpm-2022/resolution-3) defined in 2022
+
+## Release 1.1
 
 - totally ordered prefixes
 - type and value checks in constructors
