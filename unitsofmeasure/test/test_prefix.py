@@ -3,28 +3,32 @@ import pytest
 from unitsofmeasure import Prefix, PREFIX_1
 
 @pytest.mark.parametrize(
-    "base , exponent , symbol , name    , representation",[
-    (  10 ,        0 , ""     , ""      , 'Prefix(base=10, exponent=0, symbol="", name="")'        ),
-    (  10 ,        1 , "da"   , "deca"  , 'Prefix(base=10, exponent=1, symbol="da", name="deca")'  ), # SI prefixes (decimal)
-    (  10 ,        2 , "h"    , "hecto" , 'Prefix(base=10, exponent=2, symbol="h", name="hecto")'  ),
-    (  10 ,        3 , "k"    , "kilo"  , 'Prefix(base=10, exponent=3, symbol="k", name="kilo")'   ),
-    (  10 ,        6 , "M"    , "mega"  , 'Prefix(base=10, exponent=6, symbol="M", name="mega")'   ),
-    (  10 ,        9 , "G"    , "giga"  , 'Prefix(base=10, exponent=9, symbol="G", name="giga")'   ),
-    (  10 ,       12 , "T"    , "tera"  , 'Prefix(base=10, exponent=12, symbol="T", name="tera")'  ),
-    (  10 ,       15 , "P"    , "peta"  , 'Prefix(base=10, exponent=15, symbol="P", name="peta")'  ),
-    (  10 ,       18 , "E"    , "exa"   , 'Prefix(base=10, exponent=18, symbol="E", name="exa")'   ),
-    (  10 ,       21 , "Z"    , "zetta" , 'Prefix(base=10, exponent=21, symbol="Z", name="zetta")' ),
-    (  10 ,       24 , "Y"    , "yotta" , 'Prefix(base=10, exponent=24, symbol="Y", name="yotta")' ),
-    (  10 ,       -1 , "d"    , "deci"  , 'Prefix(base=10, exponent=-1, symbol="d", name="deci")'  ),
-    (  10 ,       -2 , "c"    , "centi" , 'Prefix(base=10, exponent=-2, symbol="c", name="centi")' ),
-    (  10 ,       -3 , "m"    , "milli" , 'Prefix(base=10, exponent=-3, symbol="m", name="milli")' ),
-    (  10 ,       -6 , "µ"    , "micro" , 'Prefix(base=10, exponent=-6, symbol="µ", name="micro")' ),
-    (  10 ,       -9 , "n"    , "nano"  , 'Prefix(base=10, exponent=-9, symbol="n", name="nano")'  ),
-    (  10 ,      -12 , "p"    , "pico"  , 'Prefix(base=10, exponent=-12, symbol="p", name="pico")' ),
-    (  10 ,      -15 , "f"    , "femto" , 'Prefix(base=10, exponent=-15, symbol="f", name="femto")'),
-    (  10 ,      -18 , "a"    , "atto"  , 'Prefix(base=10, exponent=-18, symbol="a", name="atto")' ),
-    (  10 ,      -21 , "z"    , "zepto" , 'Prefix(base=10, exponent=-21, symbol="z", name="zepto")'),
-    (  10 ,      -24 , "y"    , "yocto" , 'Prefix(base=10, exponent=-24, symbol="y", name="yocto")')
+    "base , exponent , symbol , name     , representation",[
+    (  10 ,        0 , ""     , ""       , 'Prefix(base=10, exponent=0, symbol="", name="")'         ),
+    (  10 ,        1 , "da"   , "deca"   , 'Prefix(base=10, exponent=1, symbol="da", name="deca")'   ), # SI prefixes (decimal)
+    (  10 ,        2 , "h"    , "hecto"  , 'Prefix(base=10, exponent=2, symbol="h", name="hecto")'   ),
+    (  10 ,        3 , "k"    , "kilo"   , 'Prefix(base=10, exponent=3, symbol="k", name="kilo")'    ),
+    (  10 ,        6 , "M"    , "mega"   , 'Prefix(base=10, exponent=6, symbol="M", name="mega")'    ),
+    (  10 ,        9 , "G"    , "giga"   , 'Prefix(base=10, exponent=9, symbol="G", name="giga")'    ),
+    (  10 ,       12 , "T"    , "tera"   , 'Prefix(base=10, exponent=12, symbol="T", name="tera")'   ),
+    (  10 ,       15 , "P"    , "peta"   , 'Prefix(base=10, exponent=15, symbol="P", name="peta")'   ),
+    (  10 ,       18 , "E"    , "exa"    , 'Prefix(base=10, exponent=18, symbol="E", name="exa")'    ),
+    (  10 ,       21 , "Z"    , "zetta"  , 'Prefix(base=10, exponent=21, symbol="Z", name="zetta")'  ),
+    (  10 ,       24 , "Y"    , "yotta"  , 'Prefix(base=10, exponent=24, symbol="Y", name="yotta")'  ),
+    (  10 ,       27 , "R"    , "ronna"  , 'Prefix(base=10, exponent=27, symbol="R", name="ronna")'  ),
+    (  10 ,       30 , "Q"    , "quetta" , 'Prefix(base=10, exponent=30, symbol="Q", name="quetta")' ),
+    (  10 ,       -1 , "d"    , "deci"   , 'Prefix(base=10, exponent=-1, symbol="d", name="deci")'   ),
+    (  10 ,       -2 , "c"    , "centi"  , 'Prefix(base=10, exponent=-2, symbol="c", name="centi")'  ),
+    (  10 ,       -3 , "m"    , "milli"  , 'Prefix(base=10, exponent=-3, symbol="m", name="milli")'  ),
+    (  10 ,       -6 , "µ"    , "micro"  , 'Prefix(base=10, exponent=-6, symbol="µ", name="micro")'  ),
+    (  10 ,       -9 , "n"    , "nano"   , 'Prefix(base=10, exponent=-9, symbol="n", name="nano")'   ),
+    (  10 ,      -12 , "p"    , "pico"   , 'Prefix(base=10, exponent=-12, symbol="p", name="pico")'  ),
+    (  10 ,      -15 , "f"    , "femto"  , 'Prefix(base=10, exponent=-15, symbol="f", name="femto")' ),
+    (  10 ,      -18 , "a"    , "atto"   , 'Prefix(base=10, exponent=-18, symbol="a", name="atto")'  ),
+    (  10 ,      -21 , "z"    , "zepto"  , 'Prefix(base=10, exponent=-21, symbol="z", name="zepto")' ),
+    (  10 ,      -24 , "y"    , "yocto"  , 'Prefix(base=10, exponent=-24, symbol="y", name="yocto")' ),
+    (  10 ,      -27 , "r"    , "ronto"  , 'Prefix(base=10, exponent=-27, symbol="r", name="ronto")' ),
+    (  10 ,      -30 , "q"    , "quecto" , 'Prefix(base=10, exponent=-30, symbol="q", name="quecto")')
 ])
 def test(base: int, exponent: int, symbol: str, name: str, representation: str) -> None:
     prefix = Prefix(base, exponent, symbol, name)

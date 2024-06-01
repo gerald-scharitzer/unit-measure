@@ -2,19 +2,21 @@ from unitsofmeasure import decprefix
 
 def test():
     items = decprefix.prefixes.items()
-    assert len(items) == 20 # there are 20 decimal prefixes
+    assert len(items) == 24 # there are 24 decimal prefixes
 
     for (key, prefix) in items:
         print(key, prefix)
         assert key == prefix.symbol
         assert prefix.base == 10
-        assert prefix.exponent >= -24
-        assert prefix.exponent <= 24
+        assert prefix.exponent >= -30
+        assert prefix.exponent <= 30
         assert len(prefix.symbol) > 0
         assert len(prefix.name) > 0
 
 def test_order():
     prefixes = [
+        decprefix.q,
+        decprefix.r,
         decprefix.y,
         decprefix.z,
         decprefix.a,
@@ -34,7 +36,9 @@ def test_order():
         decprefix.P,
         decprefix.E,
         decprefix.Z,
-        decprefix.Y
+        decprefix.Y,
+        decprefix.R,
+        decprefix.Q
     ]
     
     prev = None
