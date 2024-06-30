@@ -19,3 +19,6 @@ classifiers = [
 "Homepage" = "https://github.com/gerald-scharitzer/units-of-measure"
 "Bug Tracker" = "https://github.com/gerald-scharitzer/units-of-measure/issues"
 "Source Code" = "https://github.com/gerald-scharitzer/units-of-measure"
+
+[tool.hatch.build.targets.wheel]
+packages = ["unitsofmeasure"]
